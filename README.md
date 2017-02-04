@@ -17,8 +17,9 @@ Upon doing a little research, we found the original site, the <a href = 'http://
 	</ol>
 </p>
 
-<p> <img src="http://www.sfbike.org/wp-content/uploads/2014/03/BikeShare-diagram.jpg">
-	<strong>Bike Sharing 101</strong><br>
+<p> 
+	<h4><strong>Bike Sharing 101</strong><br></h4>
+	<img src="http://www.sfbike.org/wp-content/uploads/2014/03/BikeShare-diagram.jpg">
 	Similar to car sharing, "bicycle sharing" is a membership-based system for short trips throughout the city. Members can check out a bicycle from a network of automated stations, ride to the station nearest their destination, and leave the bicycle safely locked for someone else to use.<br>
 	Bike sharing promotes and markets bicycles as transportation that has many benefits. Biking is a clean, affordable, healty and fun way to travel around. Public bike sharing is appealing because it offers 24/7 self-service access to bikes for short trips without the hassle of maintenance or storage.
 </p>
