@@ -10,10 +10,14 @@ Upon doing a little research, we found the original site, the <a href = 'http://
 	<strong>The data files</strong><br>
 	There are 4 different data sets for each year:
 	<ol>
-		<li>"Station" with about 100 rows and 7 columns</li>
-		<li>"Status" with about <strong>100 Million</strong> rows and 4 columns</li>
-		<li>"Trip" with about <strong>1 Million</strong> rows and 1 columns</li>
-		<li>"Weather" with about 5000 rows and 24 columns</li>
+		<li>"Station" with about 100 rows and 7 columns: <br>
+		id, name, lat, long, dock_count, city, installation_date</li>
+		<li>"Status" with about <strong>100 Million</strong> rows and 4 columns:<br>
+		station_id, bikes_available, docks_available, time</li>
+		<li>"Trip" with about <strong>1 Million</strong> rows and 1 columns<br>
+		id, duration, start_date, start_station_name, start_station_id, end_date, end_station_name, end_station_id, bike_id, subscription_type, zip_code</li>
+		<li>"Weather" with about 5000 rows and 24 columns:<br>
+		date, max_temperature_f, mean_temperature_f, min_temperature_f, max_dew_point_f, mean_dew_point_f, min_dew_point_f, max_humidity, mean_humidity, min_humidity, max_sea_level_pressure_inches, mean_sea_level_pressure_inches, min_sea_level_pressure_inches, max_visibility_miles, mean_visibility_miles, min_visibility_miles, max_wind_Speed_mph, mean_wind_speed_mph, max_gust_speed_mph, precipitation_inches, cloud_cover, events, wind_dir_degrees, zip_code</li>
 	</ol>
 </p>
 
