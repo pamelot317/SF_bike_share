@@ -2,7 +2,7 @@
 
 <p> <strong>The origin of data sets</strong><br>
 We came across the 'old' data sets of two years (2013 - 2014, 2014 - 2015) on the <a href = 'https://www.kaggle.com/benhamner/sf-bay-area-bike-share'> Kaggle </a> datasets.
-Upon doing a little research, we found the original site, the <a href = 'http://www.bayareabikeshare.com/open-data'> Bay Area Bike Share company </a>,  that makes regular open data releases and maintain a real-time API. Now, we have data sets for three distinct years in 'sqlite' and 'csv' formats, and if need be, we can always retreive current data too through their API.
+Upon doing a little research, we found the original site, the <a href = 'http://www.bayareabikeshare.com/open-data'> Bay Area Bike Share company </a>,  that makes regular open data releases and maintain a real-time API. Now, we have data sets for three distinct years <strong>(2013 - 2014, 2014 - 2015, and 2015 - 2016)</strong> in 'sqlite' and 'csv' formats, and if need be, we can always retreive current data too through their API.
 </p>
 <p>
 	
