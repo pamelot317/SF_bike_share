@@ -55,6 +55,11 @@ Upon doing a little research, we found the original site, the <a href = 'http://
 </p>
 
 <p>
+	<strong>Approach</strong><br>
+	In this project, we will perform an Exploratory Data Analysis (EDA) to summarize the data, have a better insight about the dataset, extract important variables, and find any potential relationships between them. The results, will be presented using data visualization techniques. However, prior to these steps, we will need to clean the dataset by eliminating incomplete and inaccurate data through utilizing data wrangling tools.<br>
+
+</p>
+<p>
 
 This <a href = 'https://code.tutsplus.com/articles/team-collaboration-with-github--net-29876'> tutorial </a> is very useful to review how to do collaboration on Github. Check it out.
 
