@@ -1,4 +1,4 @@
-# How Bike-Sharing has been evolving since 2013 in San Francisco?
+# How bike-sharing has been evolving since 2013 in San Francisco?
 
 <p> <strong>The origin of data sets</strong><br>
 We came across the 'old' data sets of two years (2013 - 2014, 2014 - 2015) on the <a href = 'https://www.kaggle.com/benhamner/sf-bay-area-bike-share'> Kaggle </a> datasets.
