@@ -1,3 +1,7 @@
 This is a test
+<<<<<<< HEAD
 This is another test
 add another by zamir
+This is another other test
+
+>>>>>>> 0cc2212315def23c0c814ed4031b67590e5a83e1
