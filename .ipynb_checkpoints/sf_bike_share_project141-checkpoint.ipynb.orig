@@ -9,7 +9,11 @@
   },
   {
    "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 42,
+=======
    "execution_count": 18,
+>>>>>>> 39a74333bd66343d85b227b8f3a87b1e9eb05dfe
    "metadata": {
     "collapsed": false
    },
@@ -18,6 +22,15 @@
     "import datetime\n",
     "import matplotlib\n",
     "import matplotlib.pyplot as plt\n",
+<<<<<<< HEAD
+    "from matplotlib.dates import MO, TU, WE, TH, FR, SA, SU\n",
+    "plt.style.use('ggplot')\n",
+    "import numpy as np\n",
+    "import pandas as pd\n",
+    "import parser\n",
+    "import math\n",
+    "#from mpl_toolkits.basemap import Basemap"
+=======
     "#from geojson import dumps\n",
     "#import geojson as g\n",
     "plt.style.use('ggplot')\n",
@@ -25,6 +38,7 @@
     "import pandas as pd\n",
     "import geoplotlib\n",
     "import gmplot"
+>>>>>>> 39a74333bd66343d85b227b8f3a87b1e9eb05dfe
    ]
   },
   {
