@@ -30,7 +30,8 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+<<<<<<< HEAD
+   "execution_count": 2,
    "metadata": {
     "collapsed": false
    },
@@ -45,6 +46,9 @@
   {
    "cell_type": "code",
    "execution_count": 9,
+=======
+   "execution_count": 4,
+>>>>>>> 27dd4db768d3d4d11af3ab131c81cba51e2d5d7a
    "metadata": {
     "collapsed": true
    },
