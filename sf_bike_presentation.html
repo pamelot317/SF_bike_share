@@ -11766,7 +11766,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><h2> <center> <font color = 'blue' >Bike Sharing </font> </center> </h2>
 <img src="http://www.sfbike.org/wp-content/uploads/2014/03/BikeShare-diagram.jpg"></p>
-
+<p> camo.githubusercontent.com</p>
 </div>
 </div>
 </div>
@@ -11777,7 +11777,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><h2> <center> <font color ='blue'> Pricing </font> </center> </h2>
 <img src = './Pictures/pricing.png' ></p>
-
+<p>bayareabikeshare.com</p>
 </div>
 </div>
 </div>
@@ -11786,7 +11786,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1><center><font color = 'blue'> Expansion Plans (from 700 to 7000 bikes!!!) </font> </center></h1><h2 id="1.-San-Francisco:-4500-bikes">1. San Francisco: 4500 bikes<a class="anchor-link" href="#1.-San-Francisco:-4500-bikes">&#182;</a></h2><h2 id="2.-East-Bay-(Oakland,-Berkeley-and-Emeryville):-1400-bikes">2. East Bay (Oakland, Berkeley and Emeryville): 1400 bikes<a class="anchor-link" href="#2.-East-Bay-(Oakland,-Berkeley-and-Emeryville):-1400-bikes">&#182;</a></h2><h2 id="3.-San-Jose:-1000-bikes">3. San Jose: 1000 bikes<a class="anchor-link" href="#3.-San-Jose:-1000-bikes">&#182;</a></h2>
+<h1><center><font color = 'blue'> Expansion Plans (from 700 to 7000 bikes!!!) </font> </center></h1><h2 id="1.-San-Francisco:-4500-bikes">1. San Francisco: 4500 bikes<a class="anchor-link" href="#1.-San-Francisco:-4500-bikes">&#182;</a></h2><h2 id="2.-East-Bay-(Oakland,-Berkeley-and-Emeryville):-1400-bikes">2. East Bay (Oakland, Berkeley and Emeryville): 1400 bikes<a class="anchor-link" href="#2.-East-Bay-(Oakland,-Berkeley-and-Emeryville):-1400-bikes">&#182;</a></h2><h2 id="3.-San-Jose:-1000-bikes">3. San Jose: 1000 bikes<a class="anchor-link" href="#3.-San-Jose:-1000-bikes">&#182;</a></h2><p><img src = './pictures/expansion_map.jpg' ></p>
+<p> bayareabikeshare.com </p>
 </div>
 </div>
 </div>
@@ -11796,7 +11797,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><h1> <center> <font color = 'blue'> Project Goals </font> </center> </h1></p>
-<h2 id="1.-Analyze-the-Bay-Area-Bike-Share-Trip-data-and-obtain-insight-into-biking-patterns.">1. Analyze the Bay Area Bike Share Trip data and obtain insight into biking patterns.<a class="anchor-link" href="#1.-Analyze-the-Bay-Area-Bike-Share-Trip-data-and-obtain-insight-into-biking-patterns.">&#182;</a></h2><h2 id="2.-Based-on-the-analysis,-suggest-stations-that-need-more-docks/bikes-and-locations-for-new-dock-installation.">2. Based on the analysis, suggest stations that need more docks/bikes and locations for new dock installation.<a class="anchor-link" href="#2.-Based-on-the-analysis,-suggest-stations-that-need-more-docks/bikes-and-locations-for-new-dock-installation.">&#182;</a></h2>
+<h2 id="1.-Analyze-the-Bay-Area-Bike-Share-Trip-data-and-obtain-insight-into-biking-patterns.">1. Analyze the Bay Area Bike Share Trip data and obtain insight into biking patterns.<a class="anchor-link" href="#1.-Analyze-the-Bay-Area-Bike-Share-Trip-data-and-obtain-insight-into-biking-patterns.">&#182;</a></h2><h2 id="2.-Suggest-locations-for-new-dock-installation-and-stations-that-need-more-docks/bikes.">2. Suggest locations for new dock installation and stations that need more docks/bikes.<a class="anchor-link" href="#2.-Suggest-locations-for-new-dock-installation-and-stations-that-need-more-docks/bikes.">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -11805,7 +11806,15 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2> <center> <font color = 'blue'> Current Bay Area Bike Share map </font> </center> </h2><p><script src="https://gist.github.com/akimbekov/b6e0898cfc0d17e70969077731ddc5fe.js"></script></p>
+<h1> <center> <font color = 'blue' > Data Description  </font> </center> </h1><h2> 1. Open API (JSON feed) </h2><ul>
+<li><h4> live data </h4></li>
+</ul>
+<h2> 2. Historical data sets for each year between 2013 - 2016 (8-9 GB total)</h2><ul>
+<li><h4> Station (names, station coordinates, installation dates, cities) </h4></li>
+<li><h4> Status (bike and dock availability per minute per station (36 million rows for each file!!!)) </h4></li>
+<li><h4> Trip (trip start/end day and time, start and end stations, routes, bike number, rider type, subsrciber's home zip code) </h4></li>
+<li><h4> Weather (weather information per day per service area) </h4></li>
+</ul>
 
 </div>
 </div>
@@ -11815,8 +11824,33 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2> <center> <font color = 'blue' > Data description (4 csv files for each year, 8-9 Gb in total) </font> </center> </h2><h2 id="Files:">Files:<a class="anchor-link" href="#Files:">&#182;</a></h2><h3> 1. Station (names, station coordinates, installation dates, cities) </h3>
-<h3> 2. Status (bike and dock availability per minute per station) </h3><h3> 3. Trip (each trip file has 36 million rows!!!, trip start/end day and time, start and end stations, routes, bike number, rider type, subsrciber's home zip code) </h3><h3> 4. Weather (weather information per day per service area) </h3>
+<h1> <center> <font color = 'blue'> Current Bay Area Bike Share map </font> </center> </h1><p><script src="https://gist.github.com/akimbekov/1795862beb9cc8ce286da3e3f45e3495.js"></script></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><h1> <center> <font color = 'blue' > Bay Area Bike Share Trips </font> </center> </h1></p>
+<p>
+
+<h3>
+<li>Number of bike rides between 09/01/2015 and 08/31/2016 : <font color = 'blue'>312126</font>
+</li>
+<li>Averaging about <font color = 'blue'>13.79 minutes per ride</font>
+</li>
+<li>Total riding time is <font color = 'blue'>71729.45 hours</font>
+</li>
+<li>or <font color = 'blue'>2988.73 days</font>
+</li>
+<li>or <font color = 'blue'>8.19 years</font>
+</li>
+</h3><p>&lt;/p&gt;
+<img src = './pictures/combined.jpg' ></p>
+
 </div>
 </div>
 </div>
@@ -11845,12 +11879,14 @@ div#notebook {
 <li><h4> highlight the special landmarks, like corporations, caltrain and bark stations </h4></li>
 </ul>
 <p><br></p>
-<p><h2> 2. Future </h2>
-     <h3> 1. Find stations that need more bikes and/or need to be removed </h3>
-     <h3> 2. Find new locations to expand the bike share business: </h3></p>
+<p><h2> 2. Future </h2></p>
 <ul>
-<li><h4> use information submitted by people through the website, use SF crime and income by neighbourhood data </h4></li>
+<li><h3>  Find stations that need more bikes and/or need to be removed </h3></li>
+<li><h3>  Find new locations to expand the bike share business: </h3><ul>
+<li><h4> use information submitted by people through the website, use <font color = 'blue'> SF crime and income by neighbourhood data</font> </h4></li>
 <li><h4> if possible, make some financial analysis too </h4></li>
+</ul>
+</li>
 </ul>
 
 </div>
