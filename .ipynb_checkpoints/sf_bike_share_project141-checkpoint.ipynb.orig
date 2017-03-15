@@ -10,6 +10,20 @@
   {
    "cell_type": "code",
    "execution_count": 1,
+<<<<<<< HEAD
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "#aSHKAN"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+=======
+>>>>>>> d245a2c787be3bce76ecb7a508e3c8bfcbc9c382
    "metadata": {
     "collapsed": false
    },
@@ -44,13 +58,9 @@
   },
   {
    "cell_type": "code",
-<<<<<<< HEAD
-   "execution_count": 2,
-=======
-   "execution_count": 7,
->>>>>>> 15ec26140fd94c6260c0a24952a72f07b2482848
+   "execution_count": 48,
    "metadata": {
-    "collapsed": true
+    "collapsed": false
    },
    "outputs": [],
    "source": [
@@ -60,11 +70,27 @@
     "    input: path\n",
     "    output: 4 data frames (station, status, trip, and weather)\n",
     "    \"\"\"\n",
+    "        \n",
     "    path = path + '/' + str(year) + '/'\n",
-    "    station = pd.read_csv(path + 'station.csv')\n",
-    "    status = pd.read_csv(path + 'status.csv')\n",
-    "    trip = pd.read_csv(path + 'trip.csv')\n",
-    "    weather = pd.read_csv(path + 'weather.csv')\n",
+    "    if year == 2014:\n",
+    "        station1 = pd.read_csv(path + 'station1.csv')\n",
+    "        station2 = pd.read_csv(path + 'station2.csv')\n",
+    "        status1 = pd.read_csv(path + 'status1.csv')\n",
+    "        status2 = pd.read_csv(path + 'status2.csv')\n",
+    "        trip1 = pd.read_csv(path + 'trip1.csv')\n",
+    "        trip2 = pd.read_csv(path + 'trip2.csv')\n",
+    "        weather1 = pd.read_csv(path + 'weather1.csv')\n",
+    "        weather2 = pd.read_csv(path + 'weather2.csv')\n",
+    "        station = pd.concat([station1, station2])\n",
+    "        status = pd.concat([status1, status2])\n",
+    "        trip = pd.concat([trip1, trip2])\n",
+    "        weather = pd.concat([weather1, weather2])\n",
+    "    \n",
+    "    else: \n",
+    "        station = pd.read_csv(path + 'station.csv')\n",
+    "        status = pd.read_csv(path + 'status.csv')\n",
+    "        trip = pd.read_csv(path + 'trip.csv')\n",
+    "        weather = pd.read_csv(path + 'weather.csv')\n",
     "    \n",
     "    return station, status , trip, weather"
    ]
@@ -1402,160 +1428,291 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "<h3>Most popular routes</h3>"
+    "<h3>Route Counts Heatmap</h3>"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 1,
    "metadata": {
     "collapsed": true
    },
    "outputs": [],
    "source": [
-    "#Find top three routes for each station\n",
-    "popular_routes = trip.groupby(['Start Terminal', 'End Terminal']).agg({'Trip ID': 'count', 'Duration': 'mean'}).reset_index().sort_values(['Start Terminal', 'Trip ID'], ascending = [1,0])\n",
-    "popular_routes = popular_routes[popular_routes['Start Terminal'] != popular_routes['End Terminal']].groupby('Start Terminal').head(3)\n",
-    "popular_routes = popular_routes.rename(columns={'Trip ID': 'Counts'})\n",
-    "popular_routes.Duration = popular_routes['Duration'].apply(lambda x: round((x/60),2))"
+    "def route_countFunc(trip_df, station_df):\n",
+    "    \"\"\"\n",
+    "    This function gets 'trip' and 'station' dataframe and returns a dataframe contains routes and their counts\n",
+    "    @args:\n",
+    "        trip_df: trip dataframe\n",
+    "        station_df: station dataframe\n",
+    "    @returns:\n",
+    "        routes_count: contains routes and their counts, duration, and landmark\n",
+    "    \"\"\"\n",
+    "    #Add start landmark\n",
+    "    trip = pd.merge(left = trip_df, right = station_df[['station_id', 'landmark']], \n",
+    "             how='left', left_on='Start Terminal', right_on= 'station_id')\n",
+    "    trip.rename(columns={'landmark':'start_landmark'}, inplace=True)\n",
+    "    trip.drop('station_id', inplace=True, axis=1)\n",
+    "    #Add end landmark\n",
+    "    trip = pd.merge(left = trip, right = station_df[['station_id', 'landmark']], \n",
+    "             how='left', left_on='End Terminal', right_on= 'station_id')\n",
+    "    trip.rename(columns={'landmark':'end_landmark'}, inplace=True)\n",
+    "    trip.drop('station_id', inplace=True, axis=1)\n",
+    "    #Pick only trips within one landmark\n",
+    "    trip = trip[trip.start_landmark == trip.end_landmark]\n",
+    "    #Count the number of trips between stations\n",
+    "    routes_count = trip.groupby(['Start Station', 'End Station', 'start_landmark']).agg({'Trip ID': 'count', 'Duration': 'mean'}).reset_index()\n",
+    "    routes_count = routes_count.rename(columns={'Trip ID': 'Counts'})\n",
+    "    routes_count.Duration = routes_count['Duration'].apply(lambda x: round((x/60),2))\n",
+    "    #Change the column names\n",
+    "    routes_count.rename(columns={'start_landmark':'Landmark', 'Duration': 'Duration (min)'}, inplace=True)\n",
+    "    return routes_count"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": 2,
    "metadata": {
     "collapsed": true
    },
    "outputs": [],
    "source": [
-    "#Add name, latitude and longitude of the start_station\n",
-    "popular_routes=pd.merge(left = popular_routes, right = station[['station_id', 'name', 'lat', 'long']], \n",
-    "         how='inner', left_on='Start Terminal', right_on='station_id')\n",
-    "del popular_routes['station_id']\n",
-    "popular_routes = popular_routes.rename(columns={'name': 'start_name', 'lat': 'start_lat', 'long': 'start_lon'})"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 14,
-   "metadata": {
-    "collapsed": true
-   },
-   "outputs": [],
-   "source": [
-    "#Add name, latitude and longitude of the end_station\n",
-    "popular_routes=pd.merge(left = popular_routes, right = station[['station_id', 'name', 'lat', 'long']], \n",
-    "         how='inner', left_on='End Terminal', right_on='station_id')\n",
-    "del popular_routes['station_id']\n",
-    "popular_routes = popular_routes.rename(columns={'name': 'end_name', 'lat': 'end_lat', 'long': 'end_lon'})"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 15,
-   "metadata": {
-    "collapsed": true
-   },
-   "outputs": [],
-   "source": [
-    "#Hover text for stations\n",
-    "station_hover_text = station.dropna().apply(lambda x: 'Station: {}<br>Dockcount: {}'.format(x[1], int(x[4])), axis = 1)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 16,
-   "metadata": {
-    "collapsed": true
-   },
-   "outputs": [],
-   "source": [
-    "#Find the middle of the map for graph\n",
-    "lat_center = (popular_routes.start_lat.sum() + popular_routes.end_lat.sum())/(2*len(popular_routes))\n",
-    "lon_center = (popular_routes.start_lon.sum() + popular_routes.end_lon.sum())/(2*len(popular_routes))"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 17,
-   "metadata": {
-    "collapsed": true
-   },
-   "outputs": [],
-   "source": [
-    "#Define stations object\n",
-    "station_graph = go.Scattermapbox(lon = station['long'],\n",
-    "                    lat = station['lat'],\n",
-    "                    hoverinfo = 'text',\n",
-    "                    text = station_hover_text,\n",
-    "                    mode = 'markers',\n",
-    "                    marker = dict(size = 12,\n",
-    "                                 color = 'blue'\n",
-    "                                  ),\n",
-    "                    opacity = 0.3)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 18,
-   "metadata": {
-    "collapsed": true
-   },
-   "outputs": [],
-   "source": [
-    "#Define ride path object\n",
-    "#Empty list for flight path objects\n",
-    "ride_path = []\n",
-    "for i in range(len(popular_routes)):\n",
-    "    data = go.Scattermapbox(lon = [popular_routes['start_lon'][i], popular_routes['end_lon'][i]],\n",
-    "                           lat = [popular_routes['start_lat'][i], popular_routes['end_lat'][i]],\n",
-    "                           mode = 'lines',\n",
-    "                           line = dict(width = 1,\n",
-    "                                      color = 'red'),\n",
-    "                           opacity = float(popular_routes['Counts'][i])/float(popular_routes['Counts'].max()))\n",
-    "    ride_path.append(data)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 19,
-   "metadata": {
-    "collapsed": true
-   },
-   "outputs": [],
-   "source": [
-    "data = go.Data(ride_path + [station_graph])\n",
-    "#data = go.Data([station_graph])\n",
-    "#Define the layout\n",
-    "layout = dict(\n",
-    "    title = 'Top Three Busy Routes for Stations<br>San Francisco, San Jose, Palo Alto, and Mountain View',\n",
-    "    showlegend = False,\n",
-    "    autosize=True,\n",
-    "    hovermode='closest',\n",
-    "    mapbox=dict(\n",
-    "        accesstoken=mapbox_token,\n",
-    "        bearing=0,\n",
-    "        center=dict(\n",
-    "            lat=lat_center,\n",
-    "            lon=lon_center\n",
-    "        ),\n",
-    "        pitch=0,\n",
-    "        zoom=5\n",
-    "    ),\n",
-    ")\n",
-    "layout = go.Layout(layout)"
+    "def route_heatmap(trip_df, station_df, landmark):\n",
+    "    \"\"\"\n",
+    "    This function recieve the trip and station dataframes for a specific year \n",
+    "    and plots the trip heatmap for a given landmark\n",
+    "    @args:\n",
+    "        trip_df: trip dataframe\n",
+    "        station_df: station dataframe\n",
+    "        landmark: Could be \"San Francisco\", \"San Jose\", \"Palo Alto\", and \"Mountain View\"\n",
+    "    @returns:\n",
+    "        Heatmap graph\n",
+    "    \"\"\"\n",
+    "    routes = route_countFunc(trip_df, station_df)\n",
+    "    df_routes = routes[routes.Landmark == landmark]\n",
+    "    start_station = df_routes['Start Station'].sort_values().unique()\n",
+    "    end_station = df_routes['End Station'].sort_values().unique()\n",
+    "\n",
+    "    #create z values for heatmap and text for hover text in the map\n",
+    "    z = []\n",
+    "    trip_text = []\n",
+    "    for start in start_station:\n",
+    "        new_row = []\n",
+    "        text_row = []\n",
+    "        for end in end_station:\n",
+    "            try:\n",
+    "                trip_count = df_routes[(df_routes['Start Station'] == start) & (df_routes['End Station'] == end)].Counts.values[0]\n",
+    "                average_duration = df_routes[(df_routes['Start Station'] == start) & (df_routes['End Station'] == end)]['Duration (min)'].values[0]\n",
+    "            except IndexError:\n",
+    "                trip_count = 0\n",
+    "                average_duration = 0\n",
+    "            text = 'Start Station: {}<br>End Station: {}<br>Trip Counts: {}<br>Average Duration: {} Mins'.format(start, end, trip_count, average_duration)\n",
+    "            text_row.append(text)    \n",
+    "            new_row.append(trip_count)\n",
+    "        z.append(list(new_row))\n",
+    "        trip_text.append(list(text_row))\n",
+    "\n",
+    "    #Plot Heatmap\n",
+    "    heatmap = go.Heatmap(x = start_station,\n",
+    "               y = end_station,\n",
+    "               z = z,\n",
+    "                hoverinfo = 'text',\n",
+    "                text = trip_text,\n",
+    "               colorscale='YIGnBu',\n",
+    "               reversescale=True)\n",
+    "\n",
+    "    data = go.Data([heatmap])\n",
+    "    layout = go.Layout(\n",
+    "        title=landmark + ' Route Counts',\n",
+    "        titlefont = dict(color='black', size=35, family='monospace'),\n",
+    "        xaxis=dict(\n",
+    "        title='END STATION',\n",
+    "        tickangle = -90,\n",
+    "        titlefont=dict(\n",
+    "            family='monospace',\n",
+    "            size=18,\n",
+    "            color='red')),\n",
+    "        yaxis=dict(\n",
+    "        title='START STATION',\n",
+    "        titlefont=dict(\n",
+    "            family='monospace',\n",
+    "            size=18,\n",
+    "            color='red')),\n",
+    "         width=1000,\n",
+    "        height=1000,\n",
+    "        margin=go.Margin(\n",
+    "        l=300,\n",
+    "        r=50,\n",
+    "        b=300,\n",
+    "        t=100,\n",
+    "        pad=4\n",
+    "    )\n",
+    "    )\n",
+    "    fig = go.Figure(data=data, layout=layout)\n",
+    "    return py.iplot(fig)"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": null,
    "metadata": {
-    "collapsed": false
+    "collapsed": true
    },
    "outputs": [],
    "source": [
-    "fig = go.Figure(data = data, layout = layout)\n",
-    "py.iplot(fig)"
+    "route_heatmap(trip16, station16, 'San Francisco')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<h3>Trips from stations in each landmark</h3>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "def routeDock_countFunc(tripDF, stationDF, landmark):\n",
+    "    \"\"\"\n",
+    "    This function gets trip and station dataframes and the landmark of interests and returns a dataframe\n",
+    "    containing all stations with total number of trips started at the stations and their number of dockcounts\n",
+    "    @args:\n",
+    "        tripDF: trip dataframe\n",
+    "        stationDF: station dataframe\n",
+    "        landmark: Landmark of interest that could be \"San Francisco\", \"San Jose\", \"Palo Alto\", and \"Mountain View\"\n",
+    "    @returns:\n",
+    "        A dataframe containing all stations with total number of trips started at the stations and their \n",
+    "        number of dockcounts\n",
+    "    \"\"\"\n",
+    "    routeCount = route_countFunc(tripDF, stationDF)\n",
+    "    routeCount = routeCount[routeCount.Landmark == landmark].groupby('Start Station').agg({'Counts': 'sum'}).reset_index()\n",
+    "    routeCount = pd.merge(left=routeCount, right=stationDF[['name', 'dockcount']], how='inner', left_on='Start Station', right_on='name')\n",
+    "    routeCount.drop('name', axis=1, inplace=True)\n",
+    "    return routeCount"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "def hover_text(df):\n",
+    "    \"\"\"\n",
+    "    This function gets a dataframe made by function \"routeDock_countFunc\" and returns a list containing the \n",
+    "    text information used in the barplot\n",
+    "    @args:\n",
+    "        df: dataframe made with function \"routeDock_countFunc\"\n",
+    "    @returns:\n",
+    "        a list containing the text information used in hover text for the barplot\n",
+    "    \"\"\"\n",
+    "    text = df.apply(lambda x: 'Station: {}<br>Trip Counts: {}<br>Dock Counts: {}<br>Dock/Trip: {}%'.format(\n",
+    "        x[0], x[1], int(x[2]), round(float(x[2])*100/x[1], 3)), axis=1)\n",
+    "    return text\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "def bar_object(tripDF, stationDF, landmark, year):\n",
+    "    \"\"\"\n",
+    "    This function gets trip and station dataframes and the landmark of interests and specific year and returns \n",
+    "    a barobject used for plotting barplot\n",
+    "    @args:\n",
+    "        tripDF: trip dataframe\n",
+    "        stationDF: station dataframe\n",
+    "        landmark: Landmark of interest that could be \"San Francisco\", \"San Jose\", \"Palo Alto\", and \"Mountain View\"\n",
+    "        year: year of interest, either 2014, 2015, 2016\n",
+    "    @returns:\n",
+    "      Barplot object used to plot a barplot\n",
+    "    \"\"\"\n",
+    "    df = routeDock_countFunc(tripDF, stationDF, landmark)\n",
+    "    bar = go.Bar(x=df['Start Station'], y=df['Counts'],\n",
+    "                name = year, hoverinfo='text', text=hover_text(df))\n",
+    "    return bar"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "def barPlot(landmark):\n",
+    "    \"\"\"\n",
+    "    This funciton gets a landmark and plots the number of trips from statins in a landmark. The barplot\n",
+    "    contains the information for three years 2014, 2015, and 2016.\n",
+    "    @args:\n",
+    "        landmark: Landmark of interest that could be \"San Francisco\", \"San Jose\", \"Palo Alto\", and \"Mountain View\"\n",
+    "    @returns:\n",
+    "        A barplot\n",
+    "    \"\"\"\n",
+    "    \n",
+    "    #Bar object\n",
+    "    bar14 = bar_object(trip14, station14, landmark, 2014)\n",
+    "    bar15 = bar_object(trip15, station15, landmark, 2015)\n",
+    "    bar16 = bar_object(trip16, station16, landmark, 2016)\n",
+    "    data = go.Data([bar14, bar15, bar16])\n",
+    "    \n",
+    "    #Layout\n",
+    "    layout = go.Layout(\n",
+    "     width=1000,\n",
+    "    height=800,\n",
+    "    hovermode = 'closest',\n",
+    "    title='TOTAL TRIPS FROM STATIONS IN ' + landmark.upper(),\n",
+    "    titlefont = dict(color='black', size=35, family='monospace'),\n",
+    "    xaxis=dict(\n",
+    "        title='STATION',\n",
+    "        tickangle = -90,\n",
+    "        titlefont=dict(\n",
+    "            family='monospace',\n",
+    "            size=18,\n",
+    "            color='red')),\n",
+    "    yaxis=dict(\n",
+    "        title='TRIP COUNTS',\n",
+    "        titlefont=dict(\n",
+    "            family='monospace',\n",
+    "            size=18,\n",
+    "            color='red')),\n",
+    "        margin=go.Margin(\n",
+    "        l=100,\n",
+    "        r=50,\n",
+    "        b=300,\n",
+    "        t=100,\n",
+    "        pad=4), \n",
+    "        showlegend = 'True', \n",
+    "        legend = dict(x=0, y=1, orientation='h'))\n",
+    "    \n",
+    "    #Make the plot\n",
+    "    fig = go.Figure(data = data, layout = layout)\n",
+    "    return py.iplot(fig)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "barPlot('Mountain View')"
    ]
   },
   {
@@ -2031,12 +2188,13 @@
    "source": [
     "__Some manual cleaning of 2014 data:__ \n",
     "* Rename files\n",
-    "* Copy column names from weather1 to weather 2 to get rid of underscores and to concat the dataframes"
+    "* Copy column names from weather1 to weather 2 to get rid of underscores and to concat the dataframes\n",
+    "* Format dates in both weather files to be mm/dd/yyyy"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 99,
+   "execution_count": 5,
    "metadata": {
     "collapsed": false
    },
@@ -2044,7 +2202,7 @@
    "source": [
     "def read_data14(path, year):\n",
     "    \"\"\"\n",
-    "    reads csv data and returns 4 data frames for the given year\n",
+    "    reads csv data and returns 4 data frames for the given year; this function is specifically for 2014 data\n",
     "    input: path\n",
     "    output: 4 data frames (station, status, trip, and weather)\n",
     "    \"\"\"\n",
@@ -2067,7 +2225,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 69,
+   "execution_count": 46,
    "metadata": {
     "collapsed": true
    },
@@ -2078,7 +2236,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 70,
+   "execution_count": 7,
    "metadata": {
     "collapsed": false
    },
@@ -2089,13 +2247,13 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 106,
+   "execution_count": 49,
    "metadata": {
     "collapsed": false
    },
    "outputs": [],
    "source": [
-    "station14, status14, trip14, weather14 = read_data14(path, 2014)"
+    "station14, status14, trip14, weather14 = read_data(path, 2014)"
    ]
   },
   {
@@ -2107,13 +2265,21 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 108,
+   "execution_count": 9,
    "metadata": {
     "collapsed": false
    },
    "outputs": [],
    "source": [
     "def format_df(trip, weather, year):\n",
+    "    \"\"\"\n",
+    "    Takes trip and weather data frames and formats them for analysis. Also creates new\n",
+    "    dataframes for analysis. \n",
+    "    Input: trip and weather pandas dataframes; year as a string\n",
+    "    Output: dataframes trip, weather, total_rides, weather_ave, weekend_rides, hol_rides, weekday_rides, \n",
+    "    total_weekday_rides, min_dur_rides, hr_dur_rides, total_min_rides, total_hr_rides, rides_by_hour, \n",
+    "    total_rides_by_hour \n",
+    "    \"\"\"\n",
     "    trip['Count'] = 1\n",
     "    trip['Start Date'] = pd.to_datetime(trip['Start Date'], format='%m/%d/%Y %H:%M')\n",
     "    trip['End Date'] = pd.to_datetime(trip['End Date'], format='%m/%d/%Y %H:%M')\n",
@@ -2177,18 +2343,33 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 109,
+   "execution_count": 10,
    "metadata": {
     "collapsed": false
    },
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/Users/pampatterson/anaconda2/lib/python2.7/site-packages/pandas/core/indexing.py:465: SettingWithCopyWarning:\n",
+      "\n",
+      "\n",
+      "A value is trying to be set on a copy of a slice from a DataFrame.\n",
+      "Try using .loc[row_indexer,col_indexer] = value instead\n",
+      "\n",
+      "See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy\n",
+      "\n"
+     ]
+    }
+   ],
    "source": [
     "trip14, weather14, total_rides14, weather_ave14, weekend_rides14, hol_rides14, weekday_rides14, total_weekday_rides14, min_dur_rides14, hr_dur_rides14, total_min_rides14, total_hr_rides14, rides_by_hour14, total_rides_by_hour14 = format_df(trip14, weather14, '2014') "
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 71,
+   "execution_count": 11,
    "metadata": {
     "collapsed": false
    },
@@ -2199,7 +2380,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 72,
+   "execution_count": 12,
    "metadata": {
     "collapsed": false
    },
@@ -2217,7 +2398,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 47,
+   "execution_count": 13,
    "metadata": {
     "collapsed": false
    },
@@ -2225,12 +2406,12 @@
    "source": [
     "def weather_plot(x,y1,y2, y2_label, file_name, title):\n",
     "    \"\"\"\n",
-    "    Returns dual axis plot with the x axis being the day, the left and right y-axis being inputed by user\n",
-    "    input: y1 is the data for the left-axis; should have 365 entries, sorted by date;\n",
+    "    Returns dual axis plot with the x axis being the date, the left and right y-axis being inputed by user\n",
+    "    Input: y1 is the data for the left-axis; should have 365 entries, sorted by date;\n",
     "    y2 is the data for the right y-axis; should have 365 entries, sorted by date; \n",
     "    y2_label is a string\n",
     "    file_name: string of what to name file in plotly account\n",
-    "    output: a graph\n",
+    "    Output: a graph\n",
     "    \"\"\"\n",
     "\n",
     "    trace1 = go.Scatter(x=x,y=y1,name='Total Rides')\n",
@@ -2244,20 +2425,15 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "collapsed": true
-   },
-   "outputs": [],
+   "cell_type": "markdown",
+   "metadata": {},
    "source": [
-    "weather_plot(total_rides14['Date'], total_rides14['Count'], weather_ave14[' Mean Wind SpeedMPH'], \n",
-    "             'Mean Wind Speed MPH', 'Wind and Trips', 'Total Rides and Mean Wind Speed by Date 2014')"
+    "__Total rides and mean wind speed by date for 2014, 2015, 2016__"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 34,
+   "execution_count": 14,
    "metadata": {
     "collapsed": false
    },
@@ -2271,7 +2447,33 @@
        "<plotly.tools.PlotlyDisplay object>"
       ]
      },
-     "execution_count": 34,
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "weather_plot(total_rides14['Date'], total_rides14['Count'], weather_ave14[' Mean Wind SpeedMPH'], \n",
+    "             'Mean Wind Speed MPH', 'Wind and Trips', 'Total Rides and Mean Wind Speed by Date 2014')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~pamelot317/4.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<plotly.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 15,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2283,7 +2485,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 48,
+   "execution_count": 16,
    "metadata": {
     "collapsed": false
    },
@@ -2297,7 +2499,7 @@
        "<plotly.tools.PlotlyDisplay object>"
       ]
      },
-     "execution_count": 48,
+     "execution_count": 16,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2308,20 +2510,15 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "collapsed": true
-   },
-   "outputs": [],
+   "cell_type": "markdown",
+   "metadata": {},
    "source": [
-    "weather_plot(total_rides14['Date'],total_rides14['Count'], weather_ave14['Mean TemperatureF'], \n",
-    "             'Mean Temperature F', 'Temp and Trips', 'Total Rides and Mean Temperature by Date 2014')"
+    "__Total rides and mean temperature by date for 2014, 2015, 2016__"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 35,
+   "execution_count": 17,
    "metadata": {
     "collapsed": false
    },
@@ -2335,7 +2532,33 @@
        "<plotly.tools.PlotlyDisplay object>"
       ]
      },
-     "execution_count": 35,
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "weather_plot(total_rides14['Date'],total_rides14['Count'], weather_ave14['Mean TemperatureF'], \n",
+    "             'Mean Temperature F', 'Temp and Trips', 'Total Rides and Mean Temperature by Date 2014')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~pamelot317/6.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<plotly.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 18,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2347,7 +2570,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 49,
+   "execution_count": 19,
    "metadata": {
     "collapsed": false
    },
@@ -2361,7 +2584,7 @@
        "<plotly.tools.PlotlyDisplay object>"
       ]
      },
-     "execution_count": 49,
+     "execution_count": 19,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2372,20 +2595,15 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "collapsed": true
-   },
-   "outputs": [],
+   "cell_type": "markdown",
+   "metadata": {},
    "source": [
-    "weather_plot(total_rides14['Date'],total_rides14['Count'], weather_ave14['PrecipitationIn'], 'Precipitation In', 'Precip and Trips', \n",
-    "             'Total Rides and Precipitation by Date 2014')"
+    "__Total rides and precipitatoin by date for 2014, 2015, and 2016__"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 40,
+   "execution_count": 20,
    "metadata": {
     "collapsed": false
    },
@@ -2399,7 +2617,33 @@
        "<plotly.tools.PlotlyDisplay object>"
       ]
      },
-     "execution_count": 40,
+     "execution_count": 20,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "weather_plot(total_rides14['Date'],total_rides14['Count'], weather_ave14['PrecipitationIn'], 'Precipitation In', 'Precip and Trips', \n",
+    "             'Total Rides and Precipitation by Date 2014')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~pamelot317/8.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<plotly.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 21,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2411,7 +2655,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 50,
+   "execution_count": 22,
    "metadata": {
     "collapsed": false
    },
@@ -2425,7 +2669,7 @@
        "<plotly.tools.PlotlyDisplay object>"
       ]
      },
-     "execution_count": 50,
+     "execution_count": 22,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2437,7 +2681,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 51,
+   "execution_count": 23,
    "metadata": {
     "collapsed": true
    },
@@ -2464,20 +2708,15 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "collapsed": true
-   },
-   "outputs": [],
+   "cell_type": "markdown",
+   "metadata": {},
    "source": [
-    "weekend_hol_plot(total_rides14['Date'],hol_rides14['Date'],total_rides14['Count'],hol_rides14['Count'],'Holidays',\n",
-    "                 'Holidays and Trips', 'Holidays and Trips 2014')"
+    "__Total rides with holidays highlighted for 2014, 2015, 2016__"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 37,
+   "execution_count": 24,
    "metadata": {
     "collapsed": false
    },
@@ -2491,7 +2730,33 @@
        "<plotly.tools.PlotlyDisplay object>"
       ]
      },
-     "execution_count": 37,
+     "execution_count": 24,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "weekend_hol_plot(total_rides14['Date'],hol_rides14['Date'],total_rides14['Count'],hol_rides14['Count'],'Holidays',\n",
+    "                 'Holidays and Trips', 'Holidays and Trips 2014')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~pamelot317/10.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<plotly.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 25,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2503,7 +2768,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 52,
+   "execution_count": 26,
    "metadata": {
     "collapsed": false
    },
@@ -2517,7 +2782,7 @@
        "<plotly.tools.PlotlyDisplay object>"
       ]
      },
-     "execution_count": 52,
+     "execution_count": 26,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2528,20 +2793,15 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "collapsed": true
-   },
-   "outputs": [],
+   "cell_type": "markdown",
+   "metadata": {},
    "source": [
-    "weekend_hol_plot(total_rides14['Date'],weekend_rides14['Date'],total_rides14['Count'],weekend_rides15['Count'],\n",
-    "                 'Weekends','Weekends and Trips', 'Weekends and Trips 2014')"
+    "__Total rides with weekends highlighted for 2014, 2015, and 2016__"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 43,
+   "execution_count": 27,
    "metadata": {
     "collapsed": false
    },
@@ -2555,7 +2815,33 @@
        "<plotly.tools.PlotlyDisplay object>"
       ]
      },
-     "execution_count": 43,
+     "execution_count": 27,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "weekend_hol_plot(total_rides14['Date'],weekend_rides14['Date'],total_rides14['Count'],weekend_rides15['Count'],\n",
+    "                 'Weekends','Weekends and Trips', 'Weekends and Trips 2014')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~pamelot317/12.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<plotly.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 28,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2567,7 +2853,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 53,
+   "execution_count": 29,
    "metadata": {
     "collapsed": false
    },
@@ -2581,7 +2867,7 @@
        "<plotly.tools.PlotlyDisplay object>"
       ]
      },
-     "execution_count": 53,
+     "execution_count": 29,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2593,13 +2879,19 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 81,
+   "execution_count": 30,
    "metadata": {
     "collapsed": false
    },
    "outputs": [],
    "source": [
     "def grouped_bar(x1, y1, x2, y2, x3, y3, file_name, title, x_title):\n",
+    "    \"\"\"\n",
+    "    Takes axis data for a 3 grouped bar chart and outputs a grouped bar chart. \n",
+    "    Input: x1, y1, x2, y2, x3, y3 series data for different bars, the x data should align;\n",
+    "    filename: what to name the plotly file, string; title: of the graph; x_title: lable for x-axis\n",
+    "    Output: a grouped bar chart\n",
+    "    \"\"\"\n",
     "    trace1 = go.Bar(x=x1,y=y1,name='Total')\n",
     "    trace2 = go.Bar(x=x2,y=y2,name='Customer')\n",
     "    trace3 = go.Bar(x=x3,y=y3,name='Subscriber')\n",
@@ -2610,24 +2902,15 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "collapsed": true
-   },
-   "outputs": [],
+   "cell_type": "markdown",
+   "metadata": {},
    "source": [
-    "grouped_bar(total_weekday_rides14['Day of Week'],total_weekday_rides14['Count'],\n",
-    "            weekday_rides14.loc[weekday_rides14['Subscriber Type']=='Customer']['Day of Week'],\n",
-    "            weekday_rides14.loc[weekday_rides14['Subscriber Type']=='Customer']['Count'],\n",
-    "            weekday_rides14.loc[weekday_rides14['Subscriber Type']=='Subscriber']['Day of Week'],\n",
-    "            weekday_rides14.loc[weekday_rides14['Subscriber Type']=='Subscriber']['Count'], 'Day of Week Plot', \n",
-    "            'Total Rides by Day of Week 2014', 'Day of Week')"
+    "__Total rides by day of the week, separated into subscriber type for 2014, 2015, and 2016__"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 82,
+   "execution_count": 31,
    "metadata": {
     "collapsed": false
    },
@@ -2641,7 +2924,37 @@
        "<plotly.tools.PlotlyDisplay object>"
       ]
      },
-     "execution_count": 82,
+     "execution_count": 31,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "grouped_bar(total_weekday_rides14['Day of Week'],total_weekday_rides14['Count'],\n",
+    "            weekday_rides14.loc[weekday_rides14['Subscriber Type']=='Customer']['Day of Week'],\n",
+    "            weekday_rides14.loc[weekday_rides14['Subscriber Type']=='Customer']['Count'],\n",
+    "            weekday_rides14.loc[weekday_rides14['Subscriber Type']=='Subscriber']['Day of Week'],\n",
+    "            weekday_rides14.loc[weekday_rides14['Subscriber Type']=='Subscriber']['Count'], 'Day of Week Plot', \n",
+    "            'Total Rides by Day of Week 2014', 'Day of Week')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~pamelot317/19.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<plotly.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 32,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2657,7 +2970,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 83,
+   "execution_count": 33,
    "metadata": {
     "collapsed": false
    },
@@ -2671,7 +2984,7 @@
        "<plotly.tools.PlotlyDisplay object>"
       ]
      },
-     "execution_count": 83,
+     "execution_count": 33,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2686,24 +2999,15 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "collapsed": true
-   },
-   "outputs": [],
+   "cell_type": "markdown",
+   "metadata": {},
    "source": [
-    "grouped_bar(total_min_rides14.index.get_level_values('Duration'),total_min_rides14['Count'],\n",
-    "            total_min_rides14.index.get_level_values('Duration'),\n",
-    "            min_dur_rides14.loc[(min_dur_rides14.index.get_level_values('Subscriber Type') == 'Customer')]['Count'],\n",
-    "            total_min_rides14.index.get_level_values('Duration'),\n",
-    "            min_dur_rides14.loc[(min_dur_rides14.index.get_level_values('Subscriber Type') == 'Subscriber')]['Count'], \n",
-    "            'Duration by Minute Plot', 'Ride Duration by Minute 2014', 'Minutes')"
+    "__Total rides by duration in minutes, grouped by subscriber type, for 2014, 2015, and 2016__"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 84,
+   "execution_count": 34,
    "metadata": {
     "collapsed": false
    },
@@ -2717,7 +3021,37 @@
        "<plotly.tools.PlotlyDisplay object>"
       ]
      },
-     "execution_count": 84,
+     "execution_count": 34,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "grouped_bar(total_min_rides14.index.get_level_values('Duration'),total_min_rides14['Count'],\n",
+    "            total_min_rides14.index.get_level_values('Duration'),\n",
+    "            min_dur_rides14.loc[(min_dur_rides14.index.get_level_values('Subscriber Type') == 'Customer')]['Count'],\n",
+    "            total_min_rides14.index.get_level_values('Duration'),\n",
+    "            min_dur_rides14.loc[(min_dur_rides14.index.get_level_values('Subscriber Type') == 'Subscriber')]['Count'], \n",
+    "            'Duration by Minute Plot', 'Ride Duration by Minute 2014', 'Minutes')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~pamelot317/21.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<plotly.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 35,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2733,7 +3067,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 85,
+   "execution_count": 36,
    "metadata": {
     "collapsed": false
    },
@@ -2747,7 +3081,7 @@
        "<plotly.tools.PlotlyDisplay object>"
       ]
      },
-     "execution_count": 85,
+     "execution_count": 36,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2762,24 +3096,15 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "collapsed": true
-   },
-   "outputs": [],
+   "cell_type": "markdown",
+   "metadata": {},
    "source": [
-    "grouped_bar(total_hr_rides14.index.get_level_values('Duration'),total_hr_rides14['Count'],\n",
-    "            total_hr_rides14.index.get_level_values('Duration'),\n",
-    "            hr_dur_rides14.loc[(hr_dur_rides14.index.get_level_values('Subscriber Type') == 'Customer')]['Count'],\n",
-    "            total_hr_rides14.index.get_level_values('Duration'),\n",
-    "            hr_dur_rides14.loc[(hr_dur_rides14.index.get_level_values('Subscriber Type') == 'Subscriber')]['Count'], \n",
-    "            'Duration by Hour Plot', 'Ride Duration by Hour 2014', 'Hours')"
+    "__Total rides by duration in hours, grouped by subscriber type, for 2014, 2015, and 2016__"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 88,
+   "execution_count": 37,
    "metadata": {
     "collapsed": false
    },
@@ -2793,7 +3118,37 @@
        "<plotly.tools.PlotlyDisplay object>"
       ]
      },
-     "execution_count": 88,
+     "execution_count": 37,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "grouped_bar(total_hr_rides14.index.get_level_values('Duration'),total_hr_rides14['Count'],\n",
+    "            total_hr_rides14.index.get_level_values('Duration'),\n",
+    "            hr_dur_rides14.loc[(hr_dur_rides14.index.get_level_values('Subscriber Type') == 'Customer')]['Count'],\n",
+    "            total_hr_rides14.index.get_level_values('Duration'),\n",
+    "            hr_dur_rides14.loc[(hr_dur_rides14.index.get_level_values('Subscriber Type') == 'Subscriber')]['Count'], \n",
+    "            'Duration by Hour Plot', 'Ride Duration by Hour 2014', 'Hours')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~pamelot317/23.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<plotly.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 38,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2809,7 +3164,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 89,
+   "execution_count": 39,
    "metadata": {
     "collapsed": false
    },
@@ -2823,7 +3178,7 @@
        "<plotly.tools.PlotlyDisplay object>"
       ]
      },
-     "execution_count": 89,
+     "execution_count": 39,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2838,24 +3193,15 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "collapsed": true
-   },
-   "outputs": [],
+   "cell_type": "markdown",
+   "metadata": {},
    "source": [
-    "grouped_bar(total_rides_by_hour14['Hour'],total_rides_by_hour14['Count'],\n",
-    "            total_rides_by_hour14['Hour'],\n",
-    "            rides_by_hour14.loc[rides_by_hour14['Subscriber Type'] == 'Customer']['Count'],\n",
-    "            total_rides_by_hour14['Hour'],\n",
-    "            rides_by_hour14.loc[rides_by_hour14['Subscriber Type'] == 'Subscriber']['Count'], \n",
-    "            'Rides by Hour Plot', 'Total Rides Per Hour 2014', 'Hour of Day')"
+    "__Total rides by hour of the day, grouped by subscriber type, for 2014, 2015, and 2016__"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 90,
+   "execution_count": 40,
    "metadata": {
     "collapsed": false
    },
@@ -2869,7 +3215,37 @@
        "<plotly.tools.PlotlyDisplay object>"
       ]
      },
-     "execution_count": 90,
+     "execution_count": 40,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "grouped_bar(total_rides_by_hour14['Hour'],total_rides_by_hour14['Count'],\n",
+    "            total_rides_by_hour14['Hour'],\n",
+    "            rides_by_hour14.loc[rides_by_hour14['Subscriber Type'] == 'Customer']['Count'],\n",
+    "            total_rides_by_hour14['Hour'],\n",
+    "            rides_by_hour14.loc[rides_by_hour14['Subscriber Type'] == 'Subscriber']['Count'], \n",
+    "            'Rides by Hour Plot', 'Total Rides Per Hour 2014', 'Hour of Day')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~pamelot317/25.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<plotly.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 41,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2885,27 +3261,23 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 91,
+   "execution_count": 42,
    "metadata": {
     "collapsed": false
    },
    "outputs": [
     {
-     "ename": "PlotlyRequestError",
-     "evalue": "Hey there! You've hit one of our API request limits. \n\nTo get unlimited API calls(10,000/day), please upgrade to a paid plan. \n\nUPGRADE HERE: https://goo.gl/i7glmM \n\nThanks for using Plotly! Happy Plotting!",
-     "output_type": "error",
-     "traceback": [
-      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
-      "\u001b[0;31mPlotlyRequestError\u001b[0m                        Traceback (most recent call last)",
-      "\u001b[0;32m<ipython-input-91-dcab5682f647>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      4\u001b[0m             \u001b[0mtotal_rides_by_hour16\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'Hour'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m             \u001b[0mrides_by_hour16\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mloc\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mrides_by_hour16\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'Subscriber Type'\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0;34m'Subscriber'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'Count'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 6\u001b[0;31m             'Rides by Hour Plot', 'Total Rides Per Hour 2016', 'Hour of Day')\n\u001b[0m",
-      "\u001b[0;32m<ipython-input-81-e00519c401c2>\u001b[0m in \u001b[0;36mgrouped_bar\u001b[0;34m(x1, y1, x2, y2, x3, y3, file_name, title, x_title)\u001b[0m\n\u001b[1;32m      6\u001b[0m     \u001b[0mlayout\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mgo\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mLayout\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mtitle\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mtitle\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mxaxis\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mdict\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mtitle\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mx_title\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0myaxis\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mdict\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mtitle\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m'Total Rides'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mbarmode\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m'group'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      7\u001b[0m     \u001b[0mfig\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mgo\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mFigure\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdata\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mdata\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mlayout\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mlayout\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 8\u001b[0;31m     \u001b[0;32mreturn\u001b[0m \u001b[0mpy\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0miplot\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfig\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mfilename\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mfile_name\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
-      "\u001b[0;32m/Users/pampatterson/anaconda2/lib/python2.7/site-packages/plotly/plotly/plotly.pyc\u001b[0m in \u001b[0;36miplot\u001b[0;34m(figure_or_data, **plot_options)\u001b[0m\n\u001b[1;32m    129\u001b[0m     \u001b[0;32mif\u001b[0m \u001b[0;34m'auto_open'\u001b[0m \u001b[0;32mnot\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mplot_options\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    130\u001b[0m         \u001b[0mplot_options\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'auto_open'\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mFalse\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 131\u001b[0;31m     \u001b[0murl\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mplot\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfigure_or_data\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mplot_options\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    132\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    133\u001b[0m     \u001b[0;32mif\u001b[0m \u001b[0misinstance\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfigure_or_data\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mdict\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-      "\u001b[0;32m/Users/pampatterson/anaconda2/lib/python2.7/site-packages/plotly/plotly/plotly.pyc\u001b[0m in \u001b[0;36mplot\u001b[0;34m(figure_or_data, validate, **plot_options)\u001b[0m\n\u001b[1;32m    222\u001b[0m     \u001b[0mdata\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mfig\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mget\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'data'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    223\u001b[0m     \u001b[0mplot_options\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'layout'\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mfig\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mget\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'layout'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m{\u001b[0m\u001b[0;34m}\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 224\u001b[0;31m     \u001b[0mresponse\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mv1\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mclientresp\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdata\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mplot_options\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    225\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    226\u001b[0m     \u001b[0;31m# Check if the url needs a secret key\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-      "\u001b[0;32m/Users/pampatterson/anaconda2/lib/python2.7/site-packages/plotly/api/v1/clientresp.pyc\u001b[0m in \u001b[0;36mclientresp\u001b[0;34m(data, **kwargs)\u001b[0m\n\u001b[1;32m     33\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     34\u001b[0m     \u001b[0murl\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m'{plotly_domain}/clientresp'\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mformat\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m**\u001b[0m\u001b[0mcfg\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 35\u001b[0;31m     \u001b[0mresponse\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mrequest\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'post'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0murl\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mdata\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mpayload\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     36\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     37\u001b[0m     \u001b[0;31m# Old functionality, just keeping it around.\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-      "\u001b[0;32m/Users/pampatterson/anaconda2/lib/python2.7/site-packages/plotly/api/v1/utils.pyc\u001b[0m in \u001b[0;36mrequest\u001b[0;34m(method, url, **kwargs)\u001b[0m\n\u001b[1;32m     84\u001b[0m         \u001b[0mcontent\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mresponse\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcontent\u001b[0m \u001b[0;32mif\u001b[0m \u001b[0mresponse\u001b[0m \u001b[0;32melse\u001b[0m \u001b[0;34m'No content'\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     85\u001b[0m         \u001b[0;32mraise\u001b[0m \u001b[0mexceptions\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mPlotlyRequestError\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mmessage\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mstatus_code\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mcontent\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 86\u001b[0;31m     \u001b[0mvalidate_response\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mresponse\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     87\u001b[0m     \u001b[0;32mreturn\u001b[0m \u001b[0mresponse\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-      "\u001b[0;32m/Users/pampatterson/anaconda2/lib/python2.7/site-packages/plotly/api/v1/utils.pyc\u001b[0m in \u001b[0;36mvalidate_response\u001b[0;34m(response)\u001b[0m\n\u001b[1;32m     36\u001b[0m         \u001b[0mmessage\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mcontent\u001b[0m \u001b[0;32mif\u001b[0m \u001b[0mcontent\u001b[0m \u001b[0;32melse\u001b[0m \u001b[0;34m'No Content'\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     37\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 38\u001b[0;31m     \u001b[0;32mraise\u001b[0m \u001b[0mexceptions\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mPlotlyRequestError\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mmessage\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mstatus_code\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mcontent\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     39\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     40\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
-      "\u001b[0;31mPlotlyRequestError\u001b[0m: Hey there! You've hit one of our API request limits. \n\nTo get unlimited API calls(10,000/day), please upgrade to a paid plan. \n\nUPGRADE HERE: https://goo.gl/i7glmM \n\nThanks for using Plotly! Happy Plotting!"
-     ]
+     "data": {
+      "text/html": [
+       "<iframe id=\"igraph\" scrolling=\"no\" style=\"border:none;\" seamless=\"seamless\" src=\"https://plot.ly/~pamelot317/25.embed\" height=\"525px\" width=\"100%\"></iframe>"
+      ],
+      "text/plain": [
+       "<plotly.tools.PlotlyDisplay object>"
+      ]
+     },
+     "execution_count": 42,
+     "metadata": {},
+     "output_type": "execute_result"
     }
    ],
    "source": [
@@ -2930,7 +3302,7 @@
  "metadata": {
   "anaconda-cloud": {},
   "kernelspec": {
-   "display_name": "Python 2",
+   "display_name": "Python [default]",
    "language": "python",
    "name": "python2"
   },
