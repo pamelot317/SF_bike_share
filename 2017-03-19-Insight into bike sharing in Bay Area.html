@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>sf_bike_share_project141</title>
+<title>sf_bike_share_project141_to_generate_HTML</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11751,7 +11751,7 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[153]:</div>
+<div class="prompt input_prompt">In&nbsp;[119]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
@@ -11786,7 +11786,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
@@ -11835,7 +11835,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[154]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">### Read the data</span>
@@ -11865,7 +11865,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/Users/admin/project_data_141&#39;</span> <span class="c1">#Zamir&#39;s path</span>
@@ -11960,7 +11960,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">crime</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;/Crime_Incidents.csv&#39;</span><span class="p">)</span>
@@ -11978,7 +11978,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[155]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">### Format the data for analysis</span>
@@ -11991,7 +11991,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">format_df</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">trip</span><span class="p">,</span> <span class="n">weather</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
@@ -12073,7 +12073,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">status14</span><span class="p">,</span> <span class="n">trip14</span><span class="p">,</span> <span class="n">weather14</span><span class="p">,</span> <span class="n">total_rides14</span><span class="p">,</span> <span class="n">weather_ave14</span><span class="p">,</span> <span class="n">weekend_rides14</span><span class="p">,</span> <span class="n">hol_rides14</span><span class="p">,</span> <span class="n">weekday_rides14</span><span class="p">,</span> <span class="n">total_weekday_rides14</span><span class="p">,</span> <span class="n">min_dur_rides14</span><span class="p">,</span> <span class="n">hr_dur_rides14</span><span class="p">,</span> <span class="n">total_min_rides14</span><span class="p">,</span> <span class="n">total_hr_rides14</span><span class="p">,</span> <span class="n">rides_by_hour14</span><span class="p">,</span> <span class="n">total_rides_by_hour14</span> <span class="o">=</span> <span class="n">format_df</span><span class="p">(</span><span class="n">status14</span><span class="p">,</span> <span class="n">trip14</span><span class="p">,</span> <span class="n">weather14</span><span class="p">,</span> <span class="s1">&#39;2014&#39;</span><span class="p">)</span> 
@@ -12086,7 +12086,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">status15</span><span class="p">,</span> <span class="n">trip15</span><span class="p">,</span> <span class="n">weather15</span><span class="p">,</span> <span class="n">total_rides15</span><span class="p">,</span> <span class="n">weather_ave15</span><span class="p">,</span> <span class="n">weekend_rides15</span><span class="p">,</span> <span class="n">hol_rides15</span><span class="p">,</span> <span class="n">weekday_rides15</span><span class="p">,</span> <span class="n">total_weekday_rides15</span><span class="p">,</span> <span class="n">min_dur_rides15</span><span class="p">,</span> <span class="n">hr_dur_rides15</span><span class="p">,</span> <span class="n">total_min_rides15</span><span class="p">,</span> <span class="n">total_hr_rides15</span><span class="p">,</span> <span class="n">rides_by_hour15</span><span class="p">,</span> <span class="n">total_rides_by_hour15</span> <span class="o">=</span> <span class="n">format_df</span><span class="p">(</span><span class="n">status15</span><span class="p">,</span> <span class="n">trip15</span><span class="p">,</span> <span class="n">weather15</span><span class="p">,</span> <span class="s1">&#39;2015&#39;</span><span class="p">)</span> 
@@ -12099,7 +12099,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">status16</span><span class="p">,</span> <span class="n">trip16</span><span class="p">,</span> <span class="n">weather16</span><span class="p">,</span> <span class="n">total_rides16</span><span class="p">,</span> <span class="n">weather_ave16</span><span class="p">,</span> <span class="n">weekend_rides16</span><span class="p">,</span> <span class="n">hol_rides16</span><span class="p">,</span> <span class="n">weekday_rides16</span><span class="p">,</span> <span class="n">total_weekday_rides16</span><span class="p">,</span> <span class="n">min_dur_rides16</span><span class="p">,</span> <span class="n">hr_dur_rides16</span><span class="p">,</span> <span class="n">total_min_rides16</span><span class="p">,</span> <span class="n">total_hr_rides16</span><span class="p">,</span> <span class="n">rides_by_hour16</span><span class="p">,</span> <span class="n">total_rides_by_hour16</span> <span class="o">=</span> <span class="n">format_df</span><span class="p">(</span><span class="n">status16</span><span class="p">,</span> <span class="n">trip16</span><span class="p">,</span> <span class="n">weather16</span><span class="p">,</span> <span class="s1">&#39;2016&#39;</span><span class="p">)</span> 
@@ -12190,7 +12190,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[115]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 2014</span>
@@ -12207,7 +12207,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[116]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 2015</span>
@@ -12224,7 +12224,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[117]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#station16 = station16.dropna()</span>
@@ -12237,7 +12237,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[118]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 2016</span>
@@ -12316,7 +12316,7 @@ Moreover, it should be noticed out that the average riding time in minutes is ar
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[119]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">##2014</span>
@@ -12330,7 +12330,7 @@ Moreover, it should be noticed out that the average riding time in minutes is ar
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[120]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">##2014</span>
@@ -12349,7 +12349,7 @@ Moreover, it should be noticed out that the average riding time in minutes is ar
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[121]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">merged_st15</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">station15</span><span class="p">,</span> <span class="n">trip15</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;station_id&#39;</span><span class="p">)</span>
@@ -12362,7 +12362,7 @@ Moreover, it should be noticed out that the average riding time in minutes is ar
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[122]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">total_duration15</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">merged_st15</span><span class="o">.</span><span class="n">Duration</span><span class="p">)</span>
@@ -12380,7 +12380,7 @@ Moreover, it should be noticed out that the average riding time in minutes is ar
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#2016</span>
@@ -12394,7 +12394,7 @@ Moreover, it should be noticed out that the average riding time in minutes is ar
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[123]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">total_duration</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">merged_st</span><span class="o">.</span><span class="n">Duration</span><span class="p">)</span>
@@ -12412,7 +12412,7 @@ Moreover, it should be noticed out that the average riding time in minutes is ar
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[112]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">weather_plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span> <span class="n">y2_label</span><span class="p">,</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
@@ -12460,11 +12460,11 @@ May 20th, 2016: 14.2 mph, 1103 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[123]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">weather_plot</span><span class="p">(</span><span class="n">total_rides14</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="n">total_rides14</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> <span class="n">weather_ave14</span><span class="p">[</span><span class="s1">&#39; Mean Wind SpeedMPH&#39;</span><span class="p">],</span> 
-             <span class="s1">&#39;Mean Wind Speed MPH&#39;</span><span class="p">,</span> <span class="s1">&#39;Wind and Trips&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides and Mean Wind Speed by Date 2014&#39;</span><span class="p">)</span>
+             <span class="s1">&#39;Mean Wind Speed MPH&#39;</span><span class="p">,</span> <span class="s1">&#39;Wind and Trips 2014&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides and Mean Wind Speed by Date 2014&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12475,10 +12475,10 @@ May 20th, 2016: 14.2 mph, 1103 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[24]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[123]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/16.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/395.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12489,11 +12489,11 @@ May 20th, 2016: 14.2 mph, 1103 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[124]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">weather_plot</span><span class="p">(</span><span class="n">total_rides15</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="n">total_rides15</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> <span class="n">weather_ave15</span><span class="p">[</span><span class="s1">&#39; Mean Wind SpeedMPH&#39;</span><span class="p">],</span> 
-             <span class="s1">&#39;Mean Wind Speed MPH&#39;</span><span class="p">,</span> <span class="s1">&#39;Wind and Trips&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides and Mean Wind Speed by Date 2015&#39;</span><span class="p">)</span>
+             <span class="s1">&#39;Mean Wind Speed MPH&#39;</span><span class="p">,</span> <span class="s1">&#39;Wind and Trips 2015&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides and Mean Wind Speed by Date 2015&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12504,10 +12504,10 @@ May 20th, 2016: 14.2 mph, 1103 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[25]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[124]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/16.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/397.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12518,11 +12518,11 @@ May 20th, 2016: 14.2 mph, 1103 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[125]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">weather_plot</span><span class="p">(</span><span class="n">total_rides16</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">total_rides16</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> <span class="n">weather_ave16</span><span class="p">[</span><span class="s1">&#39; Mean Wind SpeedMPH&#39;</span><span class="p">],</span> 
-             <span class="s1">&#39;Mean Wind Speed MPH&#39;</span><span class="p">,</span> <span class="s1">&#39;Wind and Trips&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides and Mean Wind Speed by Date 2016&#39;</span><span class="p">)</span>
+             <span class="s1">&#39;Mean Wind Speed MPH&#39;</span><span class="p">,</span> <span class="s1">&#39;Wind and Trips 2016&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides and Mean Wind Speed by Date 2016&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12533,10 +12533,10 @@ May 20th, 2016: 14.2 mph, 1103 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[125]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/16.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/399.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12557,11 +12557,11 @@ May 20th, 2016: 14.2 mph, 1103 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[127]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">weather_plot</span><span class="p">(</span><span class="n">total_rides14</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">total_rides14</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> <span class="n">weather_ave14</span><span class="p">[</span><span class="s1">&#39;Mean TemperatureF&#39;</span><span class="p">],</span> 
-             <span class="s1">&#39;Mean Temperature F&#39;</span><span class="p">,</span> <span class="s1">&#39;Temp and Trips&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides and Mean Temperature by Date 2014&#39;</span><span class="p">)</span>
+             <span class="s1">&#39;Mean Temperature F&#39;</span><span class="p">,</span> <span class="s1">&#39;Temp and Trips 2014&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides and Mean Temperature by Date 2014&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12572,10 +12572,10 @@ May 20th, 2016: 14.2 mph, 1103 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[27]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[127]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/18.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/403.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12586,11 +12586,11 @@ May 20th, 2016: 14.2 mph, 1103 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[128]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">weather_plot</span><span class="p">(</span><span class="n">total_rides15</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">total_rides15</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> <span class="n">weather_ave15</span><span class="p">[</span><span class="s1">&#39;Mean TemperatureF&#39;</span><span class="p">],</span> 
-             <span class="s1">&#39;Mean Temperature F&#39;</span><span class="p">,</span> <span class="s1">&#39;Temp and Trips&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides and Mean Temperature by Date 2015&#39;</span><span class="p">)</span>
+             <span class="s1">&#39;Mean Temperature F&#39;</span><span class="p">,</span> <span class="s1">&#39;Temp and Trips 2015&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides and Mean Temperature by Date 2015&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12601,10 +12601,10 @@ May 20th, 2016: 14.2 mph, 1103 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[28]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[128]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/18.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/405.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12615,11 +12615,11 @@ May 20th, 2016: 14.2 mph, 1103 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[130]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">weather_plot</span><span class="p">(</span><span class="n">total_rides16</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">total_rides16</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> <span class="n">weather_ave16</span><span class="p">[</span><span class="s1">&#39;Mean TemperatureF&#39;</span><span class="p">],</span> 
-             <span class="s1">&#39;Mean Temperature F&#39;</span><span class="p">,</span> <span class="s1">&#39;Temp and Trips&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides and Mean Temperature by Date 2016&#39;</span><span class="p">)</span>
+             <span class="s1">&#39;Mean Temperature F&#39;</span><span class="p">,</span> <span class="s1">&#39;Temp and Trips 2016&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides and Mean Temperature by Date 2016&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12630,10 +12630,10 @@ May 20th, 2016: 14.2 mph, 1103 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[29]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[130]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/18.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/407.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12659,11 +12659,11 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[131]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">weather_plot</span><span class="p">(</span><span class="n">total_rides14</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">total_rides14</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> <span class="n">weather_ave14</span><span class="p">[</span><span class="s1">&#39;PrecipitationIn&#39;</span><span class="p">],</span> <span class="s1">&#39;Precipitation In&#39;</span><span class="p">,</span> <span class="s1">&#39;Precip and Trips&#39;</span><span class="p">,</span> 
-             <span class="s1">&#39;Total Rides and Precipitation by Date 2014&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">weather_plot</span><span class="p">(</span><span class="n">total_rides14</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">total_rides14</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> <span class="n">weather_ave14</span><span class="p">[</span><span class="s1">&#39;PrecipitationIn&#39;</span><span class="p">],</span> <span class="s1">&#39;Precipitation In&#39;</span><span class="p">,</span> 
+             <span class="s1">&#39;Precip and Trips 2014&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides and Precipitation by Date 2014&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12674,10 +12674,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[30]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[131]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/20.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/401.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12688,11 +12688,11 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[132]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">weather_plot</span><span class="p">(</span><span class="n">total_rides15</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">total_rides15</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> <span class="n">weather_ave15</span><span class="p">[</span><span class="s1">&#39;PrecipitationIn&#39;</span><span class="p">],</span> <span class="s1">&#39;Precipitation In&#39;</span><span class="p">,</span> <span class="s1">&#39;Precip and Trips&#39;</span><span class="p">,</span> 
-             <span class="s1">&#39;Total Rides and Precipitation by Date 2015&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">weather_plot</span><span class="p">(</span><span class="n">total_rides15</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">total_rides15</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> <span class="n">weather_ave15</span><span class="p">[</span><span class="s1">&#39;PrecipitationIn&#39;</span><span class="p">],</span> <span class="s1">&#39;Precipitation In&#39;</span><span class="p">,</span> 
+             <span class="s1">&#39;Precip and Trips 2015&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides and Precipitation by Date 2015&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12703,10 +12703,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[31]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[132]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/20.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/409.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12717,11 +12717,11 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[133]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">weather_plot</span><span class="p">(</span><span class="n">total_rides16</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">total_rides16</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> <span class="n">weather_ave16</span><span class="p">[</span><span class="s1">&#39;PrecipitationIn&#39;</span><span class="p">],</span> <span class="s1">&#39;Precipitation In&#39;</span><span class="p">,</span> <span class="s1">&#39;Precip and Trips&#39;</span><span class="p">,</span> 
-             <span class="s1">&#39;Total Rides and Precipitation by Date 2016&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">weather_plot</span><span class="p">(</span><span class="n">total_rides16</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">total_rides16</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> <span class="n">weather_ave16</span><span class="p">[</span><span class="s1">&#39;PrecipitationIn&#39;</span><span class="p">],</span> <span class="s1">&#39;Precipitation In&#39;</span><span class="p">,</span> 
+             <span class="s1">&#39;Precip and Trips 2016&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides and Precipitation by Date 2016&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12732,10 +12732,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[32]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[133]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/20.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/411.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12746,7 +12746,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">weekend_hol_plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span> <span class="n">y2_label</span><span class="p">,</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
@@ -12786,11 +12786,11 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[134]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">weekend_hol_plot</span><span class="p">(</span><span class="n">total_rides14</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">hol_rides14</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">total_rides14</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span><span class="n">hol_rides14</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span><span class="s1">&#39;Holidays&#39;</span><span class="p">,</span>
-                 <span class="s1">&#39;Holidays and Trips&#39;</span><span class="p">,</span> <span class="s1">&#39;Holidays and Trips 2014&#39;</span><span class="p">)</span>
+                 <span class="s1">&#39;Holidays and Trips 2014&#39;</span><span class="p">,</span> <span class="s1">&#39;Holidays and Trips 2014&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12801,10 +12801,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[34]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[134]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/22.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/413.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12815,11 +12815,11 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[135]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">weekend_hol_plot</span><span class="p">(</span><span class="n">total_rides15</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">hol_rides15</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">total_rides15</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span><span class="n">hol_rides15</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span><span class="s1">&#39;Holidays&#39;</span><span class="p">,</span>
-                 <span class="s1">&#39;Holidays and Trips&#39;</span><span class="p">,</span> <span class="s1">&#39;Holidays and Trips 2015&#39;</span><span class="p">)</span>
+                 <span class="s1">&#39;Holidays and Trips 2015&#39;</span><span class="p">,</span> <span class="s1">&#39;Holidays and Trips 2015&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12830,10 +12830,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[35]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[135]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/22.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/415.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12844,11 +12844,11 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[136]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">weekend_hol_plot</span><span class="p">(</span><span class="n">total_rides16</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">hol_rides16</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">total_rides16</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span><span class="n">hol_rides16</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span><span class="s1">&#39;Holidays&#39;</span><span class="p">,</span>
-                 <span class="s1">&#39;Holidays and Trips&#39;</span><span class="p">,</span> <span class="s1">&#39;Holidays and Trips 2016&#39;</span><span class="p">)</span>
+                 <span class="s1">&#39;Holidays and Trips 2016&#39;</span><span class="p">,</span> <span class="s1">&#39;Holidays and Trips 2016&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12859,10 +12859,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[36]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[136]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/22.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/417.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12883,11 +12883,11 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[137]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">weekend_hol_plot</span><span class="p">(</span><span class="n">total_rides14</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">weekend_rides14</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">total_rides14</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span><span class="n">weekend_rides15</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
-                 <span class="s1">&#39;Weekends&#39;</span><span class="p">,</span><span class="s1">&#39;Weekends and Trips&#39;</span><span class="p">,</span> <span class="s1">&#39;Weekends and Trips 2014&#39;</span><span class="p">)</span>
+                 <span class="s1">&#39;Weekends&#39;</span><span class="p">,</span><span class="s1">&#39;Weekends and Trips 2014&#39;</span><span class="p">,</span> <span class="s1">&#39;Weekends and Trips 2014&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12898,10 +12898,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[37]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[137]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/24.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/419.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12912,11 +12912,11 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[138]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">weekend_hol_plot</span><span class="p">(</span><span class="n">total_rides15</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">weekend_rides15</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">total_rides15</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span><span class="n">weekend_rides15</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
-                 <span class="s1">&#39;Weekends&#39;</span><span class="p">,</span><span class="s1">&#39;Weekends and Trips&#39;</span><span class="p">,</span> <span class="s1">&#39;Weekends and Trips 2015&#39;</span><span class="p">)</span>
+                 <span class="s1">&#39;Weekends&#39;</span><span class="p">,</span><span class="s1">&#39;Weekends and Trips 2015&#39;</span><span class="p">,</span> <span class="s1">&#39;Weekends and Trips 2015&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12927,10 +12927,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[38]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[138]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/24.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/421.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12941,11 +12941,11 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[139]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">weekend_hol_plot</span><span class="p">(</span><span class="n">total_rides16</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">weekend_rides16</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">total_rides16</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span><span class="n">weekend_rides16</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
-                 <span class="s1">&#39;Weekends&#39;</span><span class="p">,</span><span class="s1">&#39;Weekends and Trips&#39;</span><span class="p">,</span> <span class="s1">&#39;Weekends and Trips 2016&#39;</span><span class="p">)</span>
+                 <span class="s1">&#39;Weekends&#39;</span><span class="p">,</span><span class="s1">&#39;Weekends and Trips 2016&#39;</span><span class="p">,</span> <span class="s1">&#39;Weekends and Trips 2016&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12956,10 +12956,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[39]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[139]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/24.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/423.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12970,7 +12970,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">grouped_bar</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">x_title</span><span class="p">):</span>
@@ -13006,14 +13006,14 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[140]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">grouped_bar</span><span class="p">(</span><span class="n">total_weekday_rides14</span><span class="p">[</span><span class="s1">&#39;Day of Week&#39;</span><span class="p">],</span><span class="n">total_weekday_rides14</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
             <span class="n">weekday_rides14</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">weekday_rides14</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Customer&#39;</span><span class="p">][</span><span class="s1">&#39;Day of Week&#39;</span><span class="p">],</span>
             <span class="n">weekday_rides14</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">weekday_rides14</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Customer&#39;</span><span class="p">][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
             <span class="n">weekday_rides14</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">weekday_rides14</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Subscriber&#39;</span><span class="p">][</span><span class="s1">&#39;Day of Week&#39;</span><span class="p">],</span>
-            <span class="n">weekday_rides14</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">weekday_rides14</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Subscriber&#39;</span><span class="p">][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> <span class="s1">&#39;Day of Week Plot&#39;</span><span class="p">,</span> 
+            <span class="n">weekday_rides14</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">weekday_rides14</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Subscriber&#39;</span><span class="p">][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> <span class="s1">&#39;Day of Week Plot 2014&#39;</span><span class="p">,</span> 
             <span class="s1">&#39;Total Rides by Day of Week 2014&#39;</span><span class="p">,</span> <span class="s1">&#39;Day of Week&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -13025,10 +13025,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[41]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[140]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/26.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/425.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13039,14 +13039,14 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[141]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">grouped_bar</span><span class="p">(</span><span class="n">total_weekday_rides15</span><span class="p">[</span><span class="s1">&#39;Day of Week&#39;</span><span class="p">],</span><span class="n">total_weekday_rides15</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
             <span class="n">weekday_rides15</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">weekday_rides15</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Customer&#39;</span><span class="p">][</span><span class="s1">&#39;Day of Week&#39;</span><span class="p">],</span>
             <span class="n">weekday_rides15</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">weekday_rides15</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Customer&#39;</span><span class="p">][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
             <span class="n">weekday_rides15</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">weekday_rides15</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Subscriber&#39;</span><span class="p">][</span><span class="s1">&#39;Day of Week&#39;</span><span class="p">],</span>
-            <span class="n">weekday_rides15</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">weekday_rides15</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Subscriber&#39;</span><span class="p">][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> <span class="s1">&#39;Day of Week Plot&#39;</span><span class="p">,</span> 
+            <span class="n">weekday_rides15</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">weekday_rides15</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Subscriber&#39;</span><span class="p">][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> <span class="s1">&#39;Day of Week Plot 2015&#39;</span><span class="p">,</span> 
             <span class="s1">&#39;Total Rides by Day of Week 2015&#39;</span><span class="p">,</span> <span class="s1">&#39;Day of Week&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -13058,10 +13058,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[42]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[141]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/26.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/427.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13072,14 +13072,14 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[142]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">grouped_bar</span><span class="p">(</span><span class="n">total_weekday_rides16</span><span class="p">[</span><span class="s1">&#39;Day of Week&#39;</span><span class="p">],</span><span class="n">total_weekday_rides16</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
             <span class="n">weekday_rides16</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">weekday_rides16</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Customer&#39;</span><span class="p">][</span><span class="s1">&#39;Day of Week&#39;</span><span class="p">],</span>
             <span class="n">weekday_rides16</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">weekday_rides16</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Customer&#39;</span><span class="p">][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
             <span class="n">weekday_rides16</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">weekday_rides16</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Subscriber&#39;</span><span class="p">][</span><span class="s1">&#39;Day of Week&#39;</span><span class="p">],</span>
-            <span class="n">weekday_rides16</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">weekday_rides16</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Subscriber&#39;</span><span class="p">][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> <span class="s1">&#39;Day of Week Plot&#39;</span><span class="p">,</span> 
+            <span class="n">weekday_rides16</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">weekday_rides16</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Subscriber&#39;</span><span class="p">][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> <span class="s1">&#39;Day of Week Plot 2016&#39;</span><span class="p">,</span> 
             <span class="s1">&#39;Total Rides by Day of Week 2016&#39;</span><span class="p">,</span> <span class="s1">&#39;Day of Week&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -13091,10 +13091,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[43]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[142]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/26.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/429.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13115,7 +13115,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[143]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">grouped_bar</span><span class="p">(</span><span class="n">total_min_rides14</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Duration&#39;</span><span class="p">),</span><span class="n">total_min_rides14</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
@@ -13123,7 +13123,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
             <span class="n">min_dur_rides14</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">min_dur_rides14</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Customer&#39;</span><span class="p">)][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
             <span class="n">total_min_rides14</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Duration&#39;</span><span class="p">),</span>
             <span class="n">min_dur_rides14</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">min_dur_rides14</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">)][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> 
-            <span class="s1">&#39;Duration by Minute Plot&#39;</span><span class="p">,</span> <span class="s1">&#39;Ride Duration by Minute 2014&#39;</span><span class="p">,</span> <span class="s1">&#39;Minutes&#39;</span><span class="p">)</span>
+            <span class="s1">&#39;Duration by Minute Plot 2014&#39;</span><span class="p">,</span> <span class="s1">&#39;Ride Duration by Minute 2014&#39;</span><span class="p">,</span> <span class="s1">&#39;Minutes&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13134,10 +13134,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[44]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[143]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/28.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/431.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13148,7 +13148,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[144]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">grouped_bar</span><span class="p">(</span><span class="n">total_min_rides15</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Duration&#39;</span><span class="p">),</span><span class="n">total_min_rides15</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
@@ -13156,7 +13156,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
             <span class="n">min_dur_rides15</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">min_dur_rides15</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Customer&#39;</span><span class="p">)][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
             <span class="n">total_min_rides15</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Duration&#39;</span><span class="p">),</span>
             <span class="n">min_dur_rides15</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">min_dur_rides15</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">)][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> 
-            <span class="s1">&#39;Duration by Minute Plot&#39;</span><span class="p">,</span> <span class="s1">&#39;Ride Duration by Minute 2015&#39;</span><span class="p">,</span> <span class="s1">&#39;Minutes&#39;</span><span class="p">)</span>
+            <span class="s1">&#39;Duration by Minute Plot 2015&#39;</span><span class="p">,</span> <span class="s1">&#39;Ride Duration by Minute 2015&#39;</span><span class="p">,</span> <span class="s1">&#39;Minutes&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13167,10 +13167,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[45]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[144]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/28.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/433.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13181,7 +13181,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[145]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">grouped_bar</span><span class="p">(</span><span class="n">total_min_rides16</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Duration&#39;</span><span class="p">),</span><span class="n">total_min_rides16</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
@@ -13189,7 +13189,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
             <span class="n">min_dur_rides16</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">min_dur_rides16</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Customer&#39;</span><span class="p">)][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
             <span class="n">total_min_rides16</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Duration&#39;</span><span class="p">),</span>
             <span class="n">min_dur_rides16</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">min_dur_rides16</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">)][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> 
-            <span class="s1">&#39;Duration by Minute Plot&#39;</span><span class="p">,</span> <span class="s1">&#39;Ride Duration by Minute 2016&#39;</span><span class="p">,</span> <span class="s1">&#39;Minutes&#39;</span><span class="p">)</span>
+            <span class="s1">&#39;Duration by Minute Plot 2016&#39;</span><span class="p">,</span> <span class="s1">&#39;Ride Duration by Minute 2016&#39;</span><span class="p">,</span> <span class="s1">&#39;Minutes&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13200,10 +13200,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[46]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[145]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/28.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/435.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13224,7 +13224,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[146]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">grouped_bar</span><span class="p">(</span><span class="n">total_hr_rides14</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Duration&#39;</span><span class="p">),</span><span class="n">total_hr_rides14</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
@@ -13232,7 +13232,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
             <span class="n">hr_dur_rides14</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">hr_dur_rides14</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Customer&#39;</span><span class="p">)][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
             <span class="n">total_hr_rides14</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Duration&#39;</span><span class="p">),</span>
             <span class="n">hr_dur_rides14</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">hr_dur_rides14</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">)][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> 
-            <span class="s1">&#39;Duration by Hour Plot&#39;</span><span class="p">,</span> <span class="s1">&#39;Ride Duration by Hour 2014&#39;</span><span class="p">,</span> <span class="s1">&#39;Hours&#39;</span><span class="p">)</span>
+            <span class="s1">&#39;Duration by Hour Plot 2014&#39;</span><span class="p">,</span> <span class="s1">&#39;Ride Duration by Hour 2014&#39;</span><span class="p">,</span> <span class="s1">&#39;Hours&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13243,10 +13243,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[47]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[146]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/30.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/437.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13257,7 +13257,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[147]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">grouped_bar</span><span class="p">(</span><span class="n">total_hr_rides15</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Duration&#39;</span><span class="p">),</span><span class="n">total_hr_rides15</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
@@ -13265,7 +13265,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
             <span class="n">hr_dur_rides15</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">hr_dur_rides15</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Customer&#39;</span><span class="p">)][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
             <span class="n">total_hr_rides15</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Duration&#39;</span><span class="p">),</span>
             <span class="n">hr_dur_rides15</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">hr_dur_rides15</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">)][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> 
-            <span class="s1">&#39;Duration by Hour Plot&#39;</span><span class="p">,</span> <span class="s1">&#39;Ride Duration by Hour 2015&#39;</span><span class="p">,</span> <span class="s1">&#39;Hours&#39;</span><span class="p">)</span>
+            <span class="s1">&#39;Duration by Hour Plot 2015&#39;</span><span class="p">,</span> <span class="s1">&#39;Ride Duration by Hour 2015&#39;</span><span class="p">,</span> <span class="s1">&#39;Hours&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13276,10 +13276,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[48]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[147]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/30.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/439.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13290,7 +13290,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[148]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">grouped_bar</span><span class="p">(</span><span class="n">total_hr_rides16</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Duration&#39;</span><span class="p">),</span><span class="n">total_hr_rides16</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
@@ -13298,7 +13298,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
             <span class="n">hr_dur_rides16</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">hr_dur_rides16</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Customer&#39;</span><span class="p">)][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
             <span class="n">total_hr_rides16</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Duration&#39;</span><span class="p">),</span>
             <span class="n">hr_dur_rides16</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">hr_dur_rides16</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">)][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> 
-            <span class="s1">&#39;Duration by Hour Plot&#39;</span><span class="p">,</span> <span class="s1">&#39;Ride Duration by Hour 2016&#39;</span><span class="p">,</span> <span class="s1">&#39;Hours&#39;</span><span class="p">)</span>
+            <span class="s1">&#39;Duration by Hour Plot 2016&#39;</span><span class="p">,</span> <span class="s1">&#39;Ride Duration by Hour 2016&#39;</span><span class="p">,</span> <span class="s1">&#39;Hours&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13309,10 +13309,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[49]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[148]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/30.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/441.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13333,7 +13333,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[149]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">grouped_bar</span><span class="p">(</span><span class="n">total_rides_by_hour14</span><span class="p">[</span><span class="s1">&#39;Hour&#39;</span><span class="p">],</span><span class="n">total_rides_by_hour14</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
@@ -13341,7 +13341,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
             <span class="n">rides_by_hour14</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rides_by_hour14</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Customer&#39;</span><span class="p">][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
             <span class="n">total_rides_by_hour14</span><span class="p">[</span><span class="s1">&#39;Hour&#39;</span><span class="p">],</span>
             <span class="n">rides_by_hour14</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rides_by_hour14</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> 
-            <span class="s1">&#39;Rides by Hour Plot&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides Per Hour 2014&#39;</span><span class="p">,</span> <span class="s1">&#39;Hour of Day&#39;</span><span class="p">)</span>
+            <span class="s1">&#39;Rides by Hour Plot 2014&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides Per Hour 2014&#39;</span><span class="p">,</span> <span class="s1">&#39;Hour of Day&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13352,10 +13352,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[50]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[149]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/32.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/443.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13366,7 +13366,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[150]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">grouped_bar</span><span class="p">(</span><span class="n">total_rides_by_hour15</span><span class="p">[</span><span class="s1">&#39;Hour&#39;</span><span class="p">],</span><span class="n">total_rides_by_hour15</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
@@ -13374,7 +13374,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
             <span class="n">rides_by_hour15</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rides_by_hour15</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Customer&#39;</span><span class="p">][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
             <span class="n">total_rides_by_hour15</span><span class="p">[</span><span class="s1">&#39;Hour&#39;</span><span class="p">],</span>
             <span class="n">rides_by_hour15</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rides_by_hour15</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> 
-            <span class="s1">&#39;Rides by Hour Plot&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides Per Hour 2015&#39;</span><span class="p">,</span> <span class="s1">&#39;Hour of Day&#39;</span><span class="p">)</span>
+            <span class="s1">&#39;Rides by Hour Plot 2015&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides Per Hour 2015&#39;</span><span class="p">,</span> <span class="s1">&#39;Hour of Day&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13385,10 +13385,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[51]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[150]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/32.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/445.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13399,7 +13399,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[151]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">grouped_bar</span><span class="p">(</span><span class="n">total_rides_by_hour16</span><span class="p">[</span><span class="s1">&#39;Hour&#39;</span><span class="p">],</span><span class="n">total_rides_by_hour16</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
@@ -13407,7 +13407,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
             <span class="n">rides_by_hour16</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rides_by_hour16</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Customer&#39;</span><span class="p">][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span>
             <span class="n">total_rides_by_hour16</span><span class="p">[</span><span class="s1">&#39;Hour&#39;</span><span class="p">],</span>
             <span class="n">rides_by_hour16</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rides_by_hour16</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">][</span><span class="s1">&#39;Count&#39;</span><span class="p">],</span> 
-            <span class="s1">&#39;Rides by Hour Plot&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides Per Hour 2016&#39;</span><span class="p">,</span> <span class="s1">&#39;Hour of Day&#39;</span><span class="p">)</span>
+            <span class="s1">&#39;Rides by Hour Plot 2016&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Rides Per Hour 2016&#39;</span><span class="p">,</span> <span class="s1">&#39;Hour of Day&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13418,10 +13418,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[52]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[151]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/32.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/447.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13442,7 +13442,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[104]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">totals14</span> <span class="o">=</span> <span class="n">merged_st14</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -13466,10 +13466,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[104]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[56]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/326.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/365.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13480,7 +13480,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[106]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">totals15</span> <span class="o">=</span> <span class="n">merged_st15</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -13504,10 +13504,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[106]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[57]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/330.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/367.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13518,7 +13518,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[107]:</div>
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">totals</span> <span class="o">=</span> <span class="n">merged_st</span><span class="p">[</span><span class="s1">&#39;Subscriber Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -13542,10 +13542,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[107]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[58]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/332.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/369.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13566,7 +13566,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[109]:</div>
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">by_cities14</span> <span class="o">=</span> <span class="n">merged_st14</span><span class="o">.</span><span class="n">landmark</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -13589,10 +13589,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[109]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[59]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/334.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/371.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13603,7 +13603,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[113]:</div>
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">by_cities15</span> <span class="o">=</span> <span class="n">merged_st15</span><span class="o">.</span><span class="n">landmark</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -13626,10 +13626,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[113]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[60]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/336.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/373.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13640,7 +13640,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">by_cities</span> <span class="o">=</span> <span class="n">merged_st</span><span class="o">.</span><span class="n">landmark</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -13663,10 +13663,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[54]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[61]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/312.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/375.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13677,7 +13677,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[125]:</div>
+<div class="prompt input_prompt">In&nbsp;[62]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">### 14. Codes to generate maps</span>
@@ -13690,7 +13690,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">trip_counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">merged_st</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;station_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">station_id</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
@@ -13706,7 +13706,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">start_stations</span> <span class="o">=</span> <span class="n">trip16</span><span class="p">[[</span><span class="s1">&#39;Start Station&#39;</span><span class="p">,</span> <span class="s1">&#39;Duration&#39;</span><span class="p">]]</span>
@@ -13722,7 +13722,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[124]:</div>
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#merged_st.name.value_counts()[:5] #most popular five starting stations</span>
@@ -13735,7 +13735,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">calstations</span><span class="p">[</span><span class="s1">&#39;station_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;caltrain&#39;</span>
@@ -13754,7 +13754,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">df_for_map</span> <span class="o">=</span> <span class="n">station_merged</span><span class="p">[[</span><span class="s1">&#39;installation&#39;</span><span class="p">,</span><span class="s1">&#39;station_id&#39;</span><span class="p">,</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;long&#39;</span><span class="p">,</span> <span class="s1">&#39;dockcount&#39;</span><span class="p">,</span> <span class="s1">&#39;trip_counts&#39;</span><span class="p">]]</span>
@@ -13771,7 +13771,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[68]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">start_lat</span><span class="p">,</span> <span class="n">start_long</span><span class="p">,</span> <span class="n">start_name</span> <span class="o">=</span> <span class="n">calstations</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">calstations</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;long&#39;</span><span class="p">],</span> <span class="n">calstations</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
@@ -13784,7 +13784,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[69]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">parser</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -13908,7 +13908,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[126]:</div>
+<div class="prompt input_prompt">In&nbsp;[70]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#create_map(df_for_map)</span>
@@ -13921,7 +13921,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[127]:</div>
+<div class="prompt input_prompt">In&nbsp;[71]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#create_linestring(station16)</span>
@@ -13934,7 +13934,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[152]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">status_for_city</span><span class="p">(</span><span class="n">station</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">city</span> <span class="o">=</span> <span class="s1">&#39;San Francisco&#39;</span><span class="p">):</span>
@@ -14043,7 +14043,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
                   <span class="p">)</span>
 
     <span class="n">fig</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">layout</span><span class="p">)</span>
-    <span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;plot for {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;plot for {} by {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">time_format</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">plot_summary_for_city</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">term</span><span class="p">,</span> <span class="n">station_id</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
@@ -14099,7 +14099,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[146]:</div>
+<div class="prompt input_prompt">In&nbsp;[153]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">plot_summary_for_city</span><span class="p">(</span><span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="s1">&#39;hour&#39;</span><span class="p">)</span>
@@ -14113,10 +14113,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[146]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[153]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/38.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/449.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -14127,7 +14127,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[148]:</div>
+<div class="prompt input_prompt">In&nbsp;[155]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">plot_summary_for_city</span><span class="p">(</span><span class="s1">&#39;San Jose&#39;</span><span class="p">,</span> <span class="s1">&#39;hour&#39;</span><span class="p">)</span>
@@ -14141,17 +14141,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>High five! You successfuly sent some data to your account on plotly. View your plot in your browser at https://plot.ly/~ppatterson/0 or inside your plot.ly account where it is named &#39;plot for San Jose&#39;
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt output_prompt">Out[148]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[155]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/0.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/451.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -14172,7 +14165,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[149]:</div>
+<div class="prompt input_prompt">In&nbsp;[156]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">plot_summary_for_city</span><span class="p">(</span><span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="s1">&#39;weekday&#39;</span><span class="p">)</span>
@@ -14186,10 +14179,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[149]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[156]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/38.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/453.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -14200,7 +14193,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[150]:</div>
+<div class="prompt input_prompt">In&nbsp;[157]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">plot_summary_for_city</span><span class="p">(</span><span class="s1">&#39;San Jose&#39;</span><span class="p">,</span> <span class="s1">&#39;weekday&#39;</span><span class="p">)</span>
@@ -14214,17 +14207,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>High five! You successfuly sent some data to your account on plotly. View your plot in your browser at https://plot.ly/~ppatterson/0 or inside your plot.ly account where it is named &#39;plot for San Jose&#39;
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt output_prompt">Out[150]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[157]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/0.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/455.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -14245,7 +14231,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[151]:</div>
+<div class="prompt input_prompt">In&nbsp;[160]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">plot_summary_for_city</span><span class="p">(</span><span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">)</span>
@@ -14259,10 +14245,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[151]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[160]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/38.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/457.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -14273,7 +14259,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[152]:</div>
+<div class="prompt input_prompt">In&nbsp;[161]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">plot_summary_for_city</span><span class="p">(</span><span class="s1">&#39;San Jose&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">)</span>
@@ -14287,17 +14273,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>High five! You successfuly sent some data to your account on plotly. View your plot in your browser at https://plot.ly/~ppatterson/0 or inside your plot.ly account where it is named &#39;plot for San Jose&#39;
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt output_prompt">Out[152]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[161]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/0.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/459.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -14308,7 +14287,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[71]:</div>
+<div class="prompt input_prompt">In&nbsp;[162]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#plot_summary_for_city(&#39;Mountain View&#39;, &#39;hour&#39;)</span>
@@ -14323,7 +14302,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="prompt input_prompt">In&nbsp;[163]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#plot_summary_for_city(&#39;Palo Alto&#39;, &#39;hour&#39;)</span>
@@ -14338,7 +14317,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="prompt input_prompt">In&nbsp;[164]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">convert_df</span><span class="p">(</span><span class="n">station_in</span><span class="p">,</span> <span class="n">status_in</span><span class="p">,</span> <span class="n">term</span><span class="p">,</span> <span class="n">station_id</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
@@ -14369,7 +14348,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="prompt input_prompt">In&nbsp;[165]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">compares_years</span><span class="p">(</span><span class="n">term</span><span class="p">,</span> <span class="n">station_id</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
@@ -14508,7 +14487,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="prompt input_prompt">In&nbsp;[166]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">route_countFunc</span><span class="p">(</span><span class="n">trip_df</span><span class="p">,</span> <span class="n">station_df</span><span class="p">):</span>
@@ -14548,7 +14527,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[78]:</div>
+<div class="prompt input_prompt">In&nbsp;[167]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">route_heatmap</span><span class="p">(</span><span class="n">trip_df</span><span class="p">,</span> <span class="n">station_df</span><span class="p">,</span> <span class="n">landmark</span><span class="p">):</span>
@@ -14633,7 +14612,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[80]:</div>
+<div class="prompt input_prompt">In&nbsp;[168]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">crimeFunc</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -14664,7 +14643,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[81]:</div>
+<div class="prompt input_prompt">In&nbsp;[169]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">crime_objectFunc</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -14696,7 +14675,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[82]:</div>
+<div class="prompt input_prompt">In&nbsp;[170]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">extract_info</span><span class="p">(</span><span class="n">zipNum</span><span class="p">,</span> <span class="n">info_type</span><span class="p">):</span>
@@ -14731,7 +14710,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[83]:</div>
+<div class="prompt input_prompt">In&nbsp;[171]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">incomeFunc</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -14760,7 +14739,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[84]:</div>
+<div class="prompt input_prompt">In&nbsp;[172]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">hover_incomeTextFunc</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -14784,7 +14763,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[85]:</div>
+<div class="prompt input_prompt">In&nbsp;[173]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">point_incomeSizeFunc</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -14807,7 +14786,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[86]:</div>
+<div class="prompt input_prompt">In&nbsp;[174]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">point_incomeTransFunc</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -14830,7 +14809,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[87]:</div>
+<div class="prompt input_prompt">In&nbsp;[175]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">income_objectFunc</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -14862,7 +14841,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[88]:</div>
+<div class="prompt input_prompt">In&nbsp;[176]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">graph_CrimeIncome</span><span class="p">(</span><span class="n">income_df</span><span class="p">,</span> <span class="n">crime_df</span><span class="p">):</span>
@@ -14905,7 +14884,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[90]:</div>
+<div class="prompt input_prompt">In&nbsp;[177]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">routeDock_countFunc</span><span class="p">(</span><span class="n">tripDF</span><span class="p">,</span> <span class="n">stationDF</span><span class="p">,</span> <span class="n">landmark</span><span class="p">):</span>
@@ -14934,7 +14913,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[91]:</div>
+<div class="prompt input_prompt">In&nbsp;[178]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">hover_text</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -14958,7 +14937,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[92]:</div>
+<div class="prompt input_prompt">In&nbsp;[179]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">bar_object</span><span class="p">(</span><span class="n">tripDF</span><span class="p">,</span> <span class="n">stationDF</span><span class="p">,</span> <span class="n">landmark</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
@@ -14986,7 +14965,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[93]:</div>
+<div class="prompt input_prompt">In&nbsp;[180]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">barPlot</span><span class="p">(</span><span class="n">landmark</span><span class="p">):</span>
@@ -15056,7 +15035,7 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[94]:</div>
+<div class="prompt input_prompt">In&nbsp;[181]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">barPlot</span><span class="p">(</span><span class="s1">&#39;San Francisco&#39;</span><span class="p">)</span>
@@ -15070,10 +15049,10 @@ Nov 2, 2015: 0.616 inches rain, 863 rides</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[94]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[181]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/322.embed" height="800px" width="1000px"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/461.embed" height="800px" width="1000px"></iframe>
 </div>
 
 </div>
@@ -15137,7 +15116,7 @@ Broadway St at Batter St and San Francisco Caltrain 2 (330 Townsend) stations ha
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[128]:</div>
+<div class="prompt input_prompt">In&nbsp;[182]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">route_heatmap</span><span class="p">(</span><span class="n">trip16</span><span class="p">,</span> <span class="n">station16</span><span class="p">,</span> <span class="s1">&#39;San Francisco&#39;</span><span class="p">)</span>
@@ -15151,10 +15130,10 @@ Broadway St at Batter St and San Francisco Caltrain 2 (330 Townsend) stations ha
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[128]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[182]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/338.embed" height="1000px" width="1000px"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/463.embed" height="1000px" width="1000px"></iframe>
 </div>
 
 </div>
@@ -15237,7 +15216,7 @@ Harry Bridges Plaza to Embarcadero at Sansome and Embarcadero at Sansome to Steu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[133]:</div>
+<div class="prompt input_prompt">In&nbsp;[183]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">compares_years</span><span class="p">(</span><span class="n">term</span><span class="o">=</span><span class="s1">&#39;hour&#39;</span><span class="p">,</span> <span class="n">station_id</span><span class="o">=</span> <span class="mi">70</span><span class="p">)</span>
@@ -15251,10 +15230,10 @@ Harry Bridges Plaza to Embarcadero at Sansome and Embarcadero at Sansome to Steu
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[133]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[183]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/342.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/465.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -15265,7 +15244,7 @@ Harry Bridges Plaza to Embarcadero at Sansome and Embarcadero at Sansome to Steu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[140]:</div>
+<div class="prompt input_prompt">In&nbsp;[184]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">compares_years</span><span class="p">(</span><span class="n">term</span> <span class="o">=</span> <span class="s1">&#39;hour&#39;</span><span class="p">,</span> <span class="n">station_id</span> <span class="o">=</span> <span class="mi">69</span><span class="p">)</span>
@@ -15279,10 +15258,10 @@ Harry Bridges Plaza to Embarcadero at Sansome and Embarcadero at Sansome to Steu
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[140]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[184]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/355.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/467.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -15303,7 +15282,7 @@ Harry Bridges Plaza to Embarcadero at Sansome and Embarcadero at Sansome to Steu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[141]:</div>
+<div class="prompt input_prompt">In&nbsp;[185]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">compares_years</span><span class="p">(</span><span class="n">term</span> <span class="o">=</span> <span class="s1">&#39;weekday&#39;</span><span class="p">,</span> <span class="n">station_id</span> <span class="o">=</span> <span class="mi">70</span><span class="p">)</span>
@@ -15317,10 +15296,10 @@ Harry Bridges Plaza to Embarcadero at Sansome and Embarcadero at Sansome to Steu
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[141]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[185]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/357.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/469.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -15331,7 +15310,7 @@ Harry Bridges Plaza to Embarcadero at Sansome and Embarcadero at Sansome to Steu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[142]:</div>
+<div class="prompt input_prompt">In&nbsp;[186]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">compares_years</span><span class="p">(</span><span class="s1">&#39;weekday&#39;</span><span class="p">,</span> <span class="mi">69</span><span class="p">)</span>
@@ -15345,10 +15324,10 @@ Harry Bridges Plaza to Embarcadero at Sansome and Embarcadero at Sansome to Steu
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[142]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[186]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/359.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/471.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -15369,7 +15348,7 @@ Harry Bridges Plaza to Embarcadero at Sansome and Embarcadero at Sansome to Steu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[143]:</div>
+<div class="prompt input_prompt">In&nbsp;[187]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">compares_years</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
@@ -15383,10 +15362,10 @@ Harry Bridges Plaza to Embarcadero at Sansome and Embarcadero at Sansome to Steu
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[143]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[187]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/361.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/473.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -15397,7 +15376,7 @@ Harry Bridges Plaza to Embarcadero at Sansome and Embarcadero at Sansome to Steu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[144]:</div>
+<div class="prompt input_prompt">In&nbsp;[188]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">compares_years</span><span class="p">(</span><span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="mi">69</span><span class="p">)</span>
@@ -15411,10 +15390,10 @@ Harry Bridges Plaza to Embarcadero at Sansome and Embarcadero at Sansome to Steu
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[144]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[188]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/363.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/475.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -15435,7 +15414,7 @@ Harry Bridges Plaza to Embarcadero at Sansome and Embarcadero at Sansome to Steu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[129]:</div>
+<div class="prompt input_prompt">In&nbsp;[189]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">graph_CrimeIncome</span><span class="p">(</span><span class="n">income</span><span class="p">,</span> <span class="n">crime</span><span class="p">)</span>
@@ -15449,10 +15428,10 @@ Harry Bridges Plaza to Embarcadero at Sansome and Embarcadero at Sansome to Steu
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[129]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[189]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/340.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~ppatterson/477.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
