@@ -2,7 +2,7 @@
 
 - This is the repo for Statistical Data Technologies STA 141 class at UC Davis.
 
-There are three main Jupyter Notebook and 2 html files:
+There are three main Jupyter Notebook and two html files:
 
 1. __sf_bike_share_project.ipynb__ contains the final version codes.
 2. __sf_bike_share_project_to_generate_HTML.ipynb__ contains the final version of Jupyter Notebook used to generate the HTML file for our Data Science portfolio.
