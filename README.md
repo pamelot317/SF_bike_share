@@ -1,6 +1,6 @@
 # Insight into bike sharing in Bay Area
 
-- This is the repo for Statistical Data Technologies STA 141 class at UC Davis.
+This is the repo for Statistical Data Technologies STA 141 class at UC Davis.
 
 There are three main Jupyter Notebook and two html files:
 
