@@ -6,7 +6,7 @@ Upon doing a little research, we found the original site, the <a href = 'http://
 </p>
 <p>
 	
-	<strong>The data files</strong><br>
+	<strong>The data files</strong> <br>
 	There are 4 different data sets for each year:
 	<ol>
 		<li>"Station" with about 100 rows and 7 columns: <br>
